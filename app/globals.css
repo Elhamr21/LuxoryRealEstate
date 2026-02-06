@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Architectural Luxury Palette */
+    --background: 30 20% 97%;
+    --foreground: 200 15% 25%;
+    --card: 30 15% 96%;
+    --card-foreground: 200 15% 25%;
+    --popover: 30 20% 97%;
+    --popover-foreground: 200 15% 25%;
+    --primary: 215 55% 23%;
+    --primary-foreground: 30 20% 97%;
+    --secondary: 30 10% 93%;
+    --secondary-foreground: 200 15% 25%;
+    --muted: 30 10% 93%;
+    --muted-foreground: 200 8% 50%;
+    --accent: 16 52% 57%;
+    --accent-foreground: 30 20% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 215 55% 23%;
+    --chart-1: 16 52% 57%;
+    --chart-2: 215 55% 23%;
+    --chart-3: 30 5% 80%;
+    --chart-4: 200 15% 25%;
+    --chart-5: 30 20% 97%;
+    --radius: 0.25rem;
+
+    /* Custom luxury tokens */
+    --platinum: 30 5% 89%;
+    --terracotta: 16 52% 57%;
+    --indigo: 215 55% 23%;
+    --charcoal: 200 15% 25%;
+    --concrete: 30 8% 93%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* View transitions */
+@keyframes morph-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes morph-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes parallax-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
