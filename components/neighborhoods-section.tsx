@@ -6,40 +6,40 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const neighborhoods = [
   {
-    name: "Amalfi Coast",
-    country: "Italy",
-    image: "/images/property-1.jpg",
-    properties: 8,
-    avgPrice: "$12.4M",
-    description: "Where dramatic cliffs meet cerulean waters, the Amalfi Coast represents the pinnacle of Mediterranean luxury living.",
-    highlights: ["UNESCO Heritage", "Microclimate", "Private Coves"],
+    name: "Siegen City",
+    country: "Germany",
+    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.jpg",
+    properties: 2,
+    avgPrice: "€342/night",
+    description: "Experience the vibrant heart of Siegen with premium city center apartments offering modern luxury and exceptional access to local culture.",
+    highlights: ["City Center", "Modern Design", "Easy Access"],
   },
   {
-    name: "Manhattan",
-    country: "United States",
-    image: "/images/property-3.jpg",
-    properties: 12,
-    avgPrice: "$28.6M",
-    description: "The world's most iconic skyline, where vertical living reaches its most refined expression.",
-    highlights: ["Cultural Capital", "Investment Hub", "World Cuisine"],
+    name: "Siegen Suburbs",
+    country: "Germany",
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.avif",
+    properties: 1,
+    avgPrice: "€325/night",
+    description: "Charming suburban locations in Siegen offering tranquility with convenient access to amenities and the city center.",
+    highlights: ["Peaceful Setting", "Spacious", "Local Charm"],
   },
   {
-    name: "Swiss Alps",
-    country: "Switzerland",
-    image: "/images/property-4.jpg",
-    properties: 6,
-    avgPrice: "$16.8M",
-    description: "Pristine alpine environments paired with world-class infrastructure and unmatched privacy.",
-    highlights: ["Tax Benefits", "Ski Culture", "Clean Air"],
+    name: "Wilnsdorf",
+    country: "Germany",
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland1.jpg",
+    properties: 1,
+    avgPrice: "€245/night",
+    description: "Escape to the countryside with luxury apartments nestled in picturesque Wilnsdorf, perfect for a serene retreat.",
+    highlights: ["Countryside", "Natural Beauty", "Peaceful"],
   },
   {
-    name: "Kensington",
-    country: "United Kingdom",
-    image: "/images/property-6.jpg",
-    properties: 9,
-    avgPrice: "$22.1M",
-    description: "Historic elegance in one of London's most prestigious garden squares, steps from Hyde Park.",
-    highlights: ["Royal Borough", "Garden Squares", "Heritage"],
+    name: "Siegen Parkplatz",
+    country: "Germany",
+    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
+    properties: 1,
+    avgPrice: "€285/night",
+    description: "Modern apartments with convenient parking and highway access, ideal for business travelers and weekend getaways.",
+    highlights: ["Free WiFi", "Easy Parking", "Highway Access"],
   },
 ]
 
@@ -54,12 +54,12 @@ export function NeighborhoodsSection() {
         {/* Header */}
         <div className={`mb-16 ${isVisible ? "animate-slide-up" : "opacity-0"}`}>
           <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            ( Neighborhoods )
+            ( Destinations )
           </p>
           <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-            Living
+            Rental
             <br />
-            Destinations
+            Locations
           </h2>
         </div>
 
@@ -126,7 +126,7 @@ export function NeighborhoodsSection() {
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-[10px] text-muted-foreground">
-                      {n.properties} Properties
+                      {n.properties} Rental{n.properties !== 1 ? "s" : ""}
                     </span>
                     <svg
                       className={`h-4 w-4 transition-all ${
@@ -153,7 +153,7 @@ export function NeighborhoodsSection() {
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Avg. Price
+                      Starting From
                     </span>
                     <span className="font-serif text-2xl font-semibold text-foreground">
                       {neighborhood.avgPrice}

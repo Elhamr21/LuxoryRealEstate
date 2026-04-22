@@ -6,16 +6,16 @@ import { PropertyCard } from "@/components/property-card"
 import { PropertyDetail } from "@/components/property-detail"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
-const filters = ["All", "Oceanfront", "Urban", "Country Estate", "Mountain", "Tropical", "Historic"] as const
+const filters = ["All", "Urban", "Suburban", "Luxury", "Modern", "Charming", "Garden View"] as const
 
 const filterMap: Record<string, Property["type"] | "all"> = {
   All: "all",
-  Oceanfront: "oceanfront",
   Urban: "urban",
-  "Country Estate": "country",
-  Mountain: "mountain",
-  Tropical: "tropical",
-  Historic: "historic",
+  Suburban: "country",
+  Luxury: "urban",
+  Modern: "urban",
+  Charming: "country",
+  "Garden View": "country",
 }
 
 export function CollectionSection() {
@@ -51,15 +51,13 @@ export function CollectionSection() {
               ( Our Collection )
             </p>
             <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-              Curated
+              Luxury
               <br />
-              Residences
+              Apartments
             </h2>
           </div>
           <p className="max-w-md font-sans text-sm leading-relaxed text-muted-foreground md:text-base">
-            Each property in our portfolio has been hand-selected for its
-            architectural distinction, extraordinary location, and timeless
-            investment value.
+            Each property in our collection has been hand-selected for its exceptional design, premium location, and outstanding amenities for luxury short-term rentals.
           </p>
         </div>
 
@@ -111,10 +109,10 @@ export function CollectionSection() {
           style={{ animationDelay: "600ms" }}
         >
           {[
-            { label: "Properties", value: "48" },
-            { label: "Countries", value: "12" },
-            { label: "Total Value", value: "$2.1B" },
-            { label: "Avg. Price", value: "$24M" },
+            { label: "Rentals", value: "4" },
+            { label: "Locations", value: "2" },
+            { label: "Avg. Rating", value: "4.9★" },
+            { label: "Avg. Price", value: "€304/n" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
               <span className="font-serif text-3xl font-bold text-foreground md:text-4xl">

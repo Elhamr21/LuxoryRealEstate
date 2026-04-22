@@ -5,40 +5,40 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const marketData = {
   regions: [
-    { name: "Europe", growth: 8.2, volume: "$4.2B", properties: 186 },
-    { name: "North America", growth: 6.8, volume: "$6.1B", properties: 224 },
-    { name: "Asia Pacific", growth: 12.4, volume: "$3.8B", properties: 142 },
-    { name: "Middle East", growth: 15.1, volume: "$2.9B", properties: 98 },
+    { name: "Germany", growth: 85, volume: "92%", properties: 4 },
+    { name: "Central Europe", growth: 72, volume: "78%", properties: 12 },
+    { name: "Premium Urban", growth: 88, volume: "95%", properties: 8 },
+    { name: "Countryside", growth: 65, volume: "70%", properties: 6 },
   ],
   trends: [
-    { month: "Jan", value: 82 },
-    { month: "Feb", value: 85 },
+    { month: "Jan", value: 72 },
+    { month: "Feb", value: 75 },
     { month: "Mar", value: 78 },
-    { month: "Apr", value: 91 },
+    { month: "Apr", value: 85 },
     { month: "May", value: 88 },
-    { month: "Jun", value: 94 },
-    { month: "Jul", value: 97 },
+    { month: "Jun", value: 92 },
+    { month: "Jul", value: 95 },
     { month: "Aug", value: 93 },
-    { month: "Sep", value: 99 },
-    { month: "Oct", value: 102 },
-    { month: "Nov", value: 98 },
-    { month: "Dec", value: 106 },
+    { month: "Sep", value: 89 },
+    { month: "Oct", value: 86 },
+    { month: "Nov", value: 82 },
+    { month: "Dec", value: 88 },
   ],
   insights: [
     {
-      title: "Waterfront Premium",
-      description: "Oceanfront properties commanding 34% premium over inland equivalents across all markets.",
-      change: "+34%",
+      title: "Peak Season Demand",
+      description: "Summer months showing 35% higher booking rates as travelers seek premium luxury rental experiences.",
+      change: "+35%",
     },
     {
-      title: "Sustainable Luxury",
-      description: "Net-zero estates seeing 22% faster appreciation as green architecture becomes standard.",
-      change: "+22%",
+      title: "City Center Premium",
+      description: "Urban center apartments commanding 28% higher nightly rates due to exceptional location and amenities.",
+      change: "+28%",
     },
     {
-      title: "Privacy Index",
-      description: "Gated communities with advanced security systems achieving 18% value uplift year-over-year.",
-      change: "+18%",
+      title: "Guest Satisfaction",
+      description: "Luxury apartments achieving 4.9/5 star ratings with 92% repeat booking rate year-over-year.",
+      change: "+92%",
     },
   ],
 }
@@ -58,17 +58,17 @@ export function MarketSection() {
         <div className={`mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between ${isVisible ? "animate-slide-up" : "opacity-0"}`}>
           <div>
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              ( Market Intelligence )
+              ( Booking Trends )
             </p>
             <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-              Global
+              Market
               <br />
               Insights
             </h2>
           </div>
           <p className="max-w-md font-sans text-sm leading-relaxed text-muted-foreground md:text-base">
-            Real-time market data and analysis from the world's most prestigious
-            property markets, curated for discerning investors.
+            Current booking data and traveler insights from our luxury rental
+            portfolio, curated for the discerning guest.
           </p>
         </div>
 
@@ -79,15 +79,15 @@ export function MarketSection() {
         >
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <h3 className="font-serif text-xl font-semibold text-foreground">Luxury Property Index</h3>
+              <h3 className="font-serif text-xl font-semibold text-foreground">Booking Occupancy Index</h3>
               <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                12-Month Performance
+                12-Month Occupancy Rate
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-2xl font-bold text-foreground">106</span>
+              <span className="font-mono text-2xl font-bold text-foreground">88%</span>
               <span className="rounded-sm bg-accent/10 px-2 py-1 font-mono text-xs text-accent">
-                +29.3%
+                +16%
               </span>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function MarketSection() {
             className={`rounded-sm border border-border p-8 ${isVisible ? "animate-morph-in" : "opacity-0"}`}
             style={{ animationDelay: "400ms" }}
           >
-            <h3 className="mb-6 font-serif text-xl font-semibold text-foreground">Regional Performance</h3>
+            <h3 className="mb-6 font-serif text-xl font-semibold text-foreground">Category Performance</h3>
             <div className="flex flex-col gap-5">
               {marketData.regions.map((region) => (
                 <div key={region.name} className="group">
@@ -190,20 +190,20 @@ export function MarketSection() {
                     <div className="flex items-center gap-3">
                       <span className="font-sans text-sm text-foreground">{region.name}</span>
                       <span className="font-mono text-[10px] text-muted-foreground">
-                        {region.properties} properties
+                        {region.properties} listings
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-xs text-muted-foreground">{region.volume}</span>
                       <span className="font-mono text-xs font-semibold text-accent">
-                        +{region.growth}%
+                        {region.growth}%
                       </span>
                     </div>
                   </div>
                   <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
                     <div
                       className="h-full rounded-full bg-accent transition-all duration-700 group-hover:bg-primary"
-                      style={{ width: `${(region.growth / 20) * 100}%` }}
+                      style={{ width: `${(region.growth / 100) * 100}%` }}
                     />
                   </div>
                 </div>

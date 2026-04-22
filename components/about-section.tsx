@@ -16,7 +16,7 @@ export function AboutSection() {
           >
             <Image
               src="/images/hero-property.jpg"
-              alt="Maison luxury property"
+              alt="DEMA luxury property"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -25,9 +25,9 @@ export function AboutSection() {
 
             {/* Floating stat card */}
             <div className="absolute bottom-8 right-8 rounded-sm border border-primary-foreground/20 bg-foreground/30 px-6 py-4 backdrop-blur-lg">
-              <span className="block font-serif text-3xl font-bold text-primary-foreground">25+</span>
+              <span className="block font-serif text-3xl font-bold text-primary-foreground">4+</span>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground/70">
-                Years of Excellence
+                Luxury Rentals
               </span>
             </div>
           </div>
@@ -38,29 +38,29 @@ export function AboutSection() {
               ( Our Philosophy )
             </p>
             <h2 className="mb-8 font-serif text-4xl font-bold text-foreground md:text-5xl">
-              Architecture
+              Luxury
               <br />
-              as Art
+              Experiences
             </h2>
             <p className="mb-6 font-sans text-base leading-relaxed text-muted-foreground">
-              At Maison, we believe that a residence is more than a structure. It is a narrative
-              written in stone, glass, and light. Our curated portfolio represents the finest
-              examples of architectural vision from across the globe, each property selected
-              for its ability to inspire and transform.
+              At DEMA, we believe that travel accommodation is more than a place to sleep. It is a gateway
+              to authentic living, carefully curated for those who appreciate exceptional design and 
+              uncompromising quality. Our collection represents the finest luxury rental apartments,
+              each selected for its ability to inspire extraordinary moments.
             </p>
             <p className="mb-10 font-sans text-base leading-relaxed text-muted-foreground">
-              Founded by a collective of architects, art advisors, and real estate visionaries,
-              we approach property not as commodity but as cultural artifact. Every listing
-              in our collection tells a story worth inhabiting.
+              Founded by hospitality experts, interior designers, and travel enthusiasts,
+              we approach rental properties not as commodities but as curated experiences. Every listing
+              in our collection is designed to elevate your stay into something memorable.
             </p>
 
             {/* Values */}
             <div className="grid grid-cols-2 gap-6">
               {[
-                { label: "Curation", description: "Only the top 1% of properties earn our seal" },
-                { label: "Discretion", description: "Privacy-first approach to every transaction" },
-                { label: "Vision", description: "Architectural merit as the primary criterion" },
-                { label: "Legacy", description: "Properties that appreciate in every sense" },
+                { label: "Curation", description: "Only exceptional luxury apartments meet our standards" },
+                { label: "Comfort", description: "Premium amenities and thoughtful design in every space" },
+                { label: "Authenticity", description: "Genuine local character combined with global luxury" },
+                { label: "Experience", description: "Every stay creates lasting memories and moments" },
               ].map((value) => (
                 <div key={value.label} className="flex flex-col gap-1">
                   <span className="font-serif text-lg font-semibold text-foreground">{value.label}</span>

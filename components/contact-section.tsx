@@ -32,21 +32,21 @@ export function ContactSection() {
               ( Contact )
             </p>
             <h2 className="mb-8 font-serif text-4xl font-bold text-primary-foreground md:text-5xl">
-              Begin Your
+              Plan Your
               <br />
-              Journey
+              Stay
             </h2>
             <p className="mb-10 max-w-md font-sans text-base leading-relaxed text-primary-foreground/70">
-              Whether you are searching for a primary residence, a retreat, or a
-              legacy investment, our advisors are ready to curate the perfect
-              property experience for you.
+              Whether you are looking for a weekend escape, an extended stay, or
+              a luxury getaway, our concierge team is ready to help you book the
+              perfect apartment experience.
             </p>
 
             <div className="flex flex-col gap-6">
               {[
-                { label: "London", detail: "+44 20 7946 0958" },
-                { label: "New York", detail: "+1 212 555 0147" },
-                { label: "Email", detail: "private@maison.com" },
+                { label: "Email", detail: "hello@dema-rentals.com" },
+                { label: "Phone", detail: "+49 271 DEMA" },
+                { label: "Support", detail: "Available 24/7" },
               ].map((office) => (
                 <div key={office.label} className="flex items-center gap-4">
                   <span className="w-20 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground/40">
@@ -74,14 +74,14 @@ export function ContactSection() {
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-primary-foreground">Thank You</h3>
                 <p className="max-w-xs font-sans text-sm text-primary-foreground/60">
-                  A Maison advisor will be in touch within 24 hours to arrange your
-                  private consultation.
+                  A DEMA concierge specialist will be in touch within 24 hours to
+                  confirm your booking and arrange your stay.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <h3 className="mb-2 font-serif text-xl font-semibold text-primary-foreground">
-                  Request a Private Viewing
+                  Get Information & Book
                 </h3>
 
                 <div className="grid gap-4 md:grid-cols-2">

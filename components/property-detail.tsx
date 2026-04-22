@@ -11,7 +11,7 @@ interface PropertyDetailProps {
 
 export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const [isRevealed, setIsRevealed] = useState(false)
-  const [activeTab, setActiveTab] = useState<"overview" | "features" | "investment">("overview")
+  const [activeTab, setActiveTab] = useState<"overview" | "features" | "pricing">("overview")
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -84,8 +84,8 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             { label: "Bedrooms", value: String(property.beds) },
             { label: "Bathrooms", value: String(property.baths) },
             { label: "Living Area", value: `${property.sqft} sqft` },
-            { label: "Architect", value: property.architect },
-            { label: "Year Built", value: String(property.yearBuilt) },
+            { label: "Manager", value: property.architect },
+            { label: "Available Since", value: String(property.yearBuilt) },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -98,7 +98,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tabs */}
         <div className="mb-10 flex gap-1 border-b border-border">
-          {(["overview", "features", "investment"] as const).map((tab) => (
+          {(["overview", "features", "pricing"] as const).map((tab) => (
             <button
               key={tab}
               type="button"
@@ -119,10 +119,10 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
           {activeTab === "overview" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">About this Residence</h3>
+                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">About this Rental</h3>
                 <p className="font-sans text-base leading-relaxed text-muted-foreground">{property.description}</p>
                 <div className="mt-8 flex flex-col gap-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Designed by</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Managed by</p>
                   <p className="font-serif text-lg text-foreground">{property.architect}</p>
                 </div>
               </div>
@@ -173,10 +173,10 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             </div>
           )}
 
-          {activeTab === "investment" && (
+          {activeTab === "pricing" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Price History</h3>
+                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Nightly Rates</h3>
                 {/* Simple chart */}
                 <div className="relative h-64 w-full rounded-sm border border-border p-6">
                   <div className="flex h-full items-end gap-3">
@@ -185,7 +185,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                       return (
                         <div key={entry.year} className="flex flex-1 flex-col items-center gap-2">
                           <span className="font-mono text-[9px] text-muted-foreground">
-                            ${(entry.price / 1000000).toFixed(1)}M
+                            €{entry.price}
                           </span>
                           <div
                             className="w-full rounded-t-sm bg-accent/80 transition-all duration-700 hover:bg-accent"
@@ -199,19 +199,19 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                 </div>
               </div>
               <div className="flex flex-col gap-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground">Investment Summary</h3>
+                <h3 className="font-serif text-2xl font-semibold text-foreground">Booking Details</h3>
                 <div className="flex flex-col gap-4">
                   {[
                     {
-                      label: "5-Year Appreciation",
-                      value: `+${(((property.priceHistory[property.priceHistory.length - 1].price - property.priceHistory[0].price) / property.priceHistory[0].price) * 100).toFixed(1)}%`,
+                      label: "Current Nightly Rate",
+                      value: property.price,
                     },
                     {
-                      label: "Annual Avg. Growth",
-                      value: `+${(((property.priceHistory[property.priceHistory.length - 1].price - property.priceHistory[0].price) / property.priceHistory[0].price / (property.priceHistory.length - 1)) * 100).toFixed(1)}%`,
+                      label: "Minimum Stay",
+                      value: "1 night",
                     },
-                    { label: "Market Position", value: "Top 1%" },
-                    { label: "Liquidity Rating", value: "High" },
+                    { label: "Cancellation Policy", value: "Flexible" },
+                    { label: "Availability", value: "Year-round" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between border-b border-border pb-3">
                       <span className="font-mono text-xs text-muted-foreground">{item.label}</span>
@@ -230,7 +230,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                   }}
                   className="mt-4 rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
                 >
-                  Request Private Valuation
+                  Book Now
                 </a>
               </div>
             </div>

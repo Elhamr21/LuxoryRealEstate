@@ -24,7 +24,7 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Maison | Luxury Real Estate",
+  title: "DEMA | Luxury AIR BNB",
   description:
     "Discover extraordinary residences through an immersive cinematic experience. Curated luxury properties worldwide.",
 }

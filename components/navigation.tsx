@@ -25,10 +25,10 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold tracking-tight text-foreground">
-            MAISON
+            DEMA
           </span>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            Luxury Estates
+            Luxury Rentals
           </span>
         </Link>
 
@@ -52,7 +52,7 @@ export function Navigation() {
             href="#contact"
             className="hidden rounded-sm bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90 md:inline-block"
           >
-            Private Viewing
+            Book Now
           </a>
 
           {/* Mobile menu button */}

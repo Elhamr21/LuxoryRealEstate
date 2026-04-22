@@ -7,7 +7,7 @@ export function SiteFooter() {
         {/* Top: Large brand */}
         <div className="mb-16">
           <span className="font-serif text-7xl font-bold tracking-tight text-foreground md:text-9xl lg:text-[10rem]">
-            MAISON
+            DEMA
           </span>
         </div>
 
@@ -17,7 +17,7 @@ export function SiteFooter() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               Collection
             </span>
-            {["Oceanfront", "Urban Penthouses", "Country Estates", "Mountain Retreats", "Tropical Villas", "Historic Homes"].map(
+            {["Urban Apartments", "City Center", "Countryside", "Modern Design", "Premium Amenities", "Full Service"].map(
               (item) => (
                 <a
                   key={item}
@@ -34,7 +34,7 @@ export function SiteFooter() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               Services
             </span>
-            {["Private Sales", "Investment Advisory", "Property Management", "Interior Design", "Legal Counsel", "Relocation"].map(
+            {["Book a Stay", "Group Bookings", "Extended Stays", "Guest Services", "Concierge", "Special Requests"].map(
               (item) => (
                 <a
                   key={item}
@@ -49,15 +49,15 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Offices
+              Locations
             </span>
             {[
-              "London, Mayfair",
-              "New York, Fifth Ave",
-              "Paris, Avenue Montaigne",
-              "Dubai, DIFC",
-              "Hong Kong, Central",
-              "Zurich, Bahnhofstrasse",
+              "Siegen, Germany",
+              "Wilnsdorf, Germany",
+              "Central Europe Base",
+              "Premium Properties",
+              "Coming Soon",
+              "Inquire Now",
             ].map((item) => (
               <span key={item} className="font-sans text-sm text-foreground/70">
                 {item}
@@ -85,7 +85,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-4">
             <span className="font-mono text-[10px] text-muted-foreground">
-              &copy; 2026 Maison Luxury Estates
+              &copy; 2026 DEMA Luxury Rentals
             </span>
             <span className="h-3 w-px bg-border" />
             <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">

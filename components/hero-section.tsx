@@ -5,22 +5,22 @@ import Image from "next/image"
 
 const heroSlides = [
   {
-    image: "/images/hero-property.jpg",
-    title: "Villa Aurora",
-    location: "Amalfi Coast, Italy",
-    price: "$14,500,000",
+    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.jpg",
+    title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
+    location: "Siegen City Center, Germany",
+    price: "€360/night",
   },
   {
-    image: "/images/property-3.jpg",
-    title: "The Skyline Residence",
-    location: "Manhattan, New York",
-    price: "$38,500,000",
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.avif",
+    title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
+    location: "Siegen, Germany",
+    price: "€325/night",
   },
   {
-    image: "/images/property-2.jpg",
-    title: "Chateau Lumiere",
-    location: "Loire Valley, France",
-    price: "$22,000,000",
+    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
+    title: "City Apartment in Siegen Parkplatz WLAN Autobahn",
+    location: "Siegen, Germany",
+    price: "€285/night",
   },
 ]
 
@@ -83,7 +83,7 @@ export function HeroSection() {
                   key={i}
                   className="mr-12 font-mono text-[10px] uppercase tracking-[0.3em] text-primary-foreground/50"
                 >
-                  Curated Luxury Estates &nbsp;&middot;&nbsp; Architectural Excellence &nbsp;&middot;&nbsp; Private Collection &nbsp;&middot;&nbsp; Global Portfolio &nbsp;&middot;&nbsp;
+                  Luxury Rentals &nbsp;&middot;&nbsp; Exceptional Apartments &nbsp;&middot;&nbsp; Premium Experiences &nbsp;&middot;&nbsp; Curated Properties &nbsp;&middot;&nbsp;
                 </span>
               ))}
             </div>
@@ -98,7 +98,7 @@ export function HeroSection() {
               }`}
             >
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
-                Featured Residence
+                Featured Rental
               </p>
               <h1 className="font-serif text-5xl font-bold leading-tight text-primary-foreground md:text-7xl lg:text-8xl">
                 {slide.title}

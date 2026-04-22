@@ -30,8 +30,8 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
 
   const typeLabel = {
     oceanfront: "Oceanfront",
-    urban: "Urban",
-    country: "Country Estate",
+    urban: "Urban Apartment",
+    country: "Countryside",
     mountain: "Mountain",
     tropical: "Tropical",
     historic: "Historic",
@@ -110,7 +110,7 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
             }`}
           >
             <span className="flex items-center gap-2 rounded-sm border border-primary-foreground/50 bg-foreground/20 px-5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground backdrop-blur-md">
-              Explore Residence
+              View Rental
               <svg
                 className="h-3 w-3"
                 fill="none"
