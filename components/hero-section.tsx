@@ -5,13 +5,13 @@ import Image from "next/image"
 
 const heroSlides = [
   {
-    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.jpg",
+    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
     title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
     location: "Siegen City Center, Germany",
     price: "€360/night",
   },
   {
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.avif",
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
     title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
     location: "Siegen, Germany",
     price: "€325/night",

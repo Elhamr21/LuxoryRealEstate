@@ -8,7 +8,7 @@ const neighborhoods = [
   {
     name: "Siegen City",
     country: "Germany",
-    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.jpg",
+    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
     properties: 2,
     avgPrice: "€342/night",
     description: "Experience the vibrant heart of Siegen with premium city center apartments offering modern luxury and exceptional access to local culture.",
@@ -17,7 +17,7 @@ const neighborhoods = [
   {
     name: "Siegen Suburbs",
     country: "Germany",
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.avif",
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
     properties: 1,
     avgPrice: "€325/night",
     description: "Charming suburban locations in Siegen offering tranquility with convenient access to amenities and the city center.",
