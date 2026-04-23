@@ -5,20 +5,26 @@ import Image from "next/image"
 
 const heroSlides = [
   {
-    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
+    image: "/images/AirBNB/hero1.jpeg",
     title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
     location: "Siegen City Center, Germany",
     price: "€360/night",
   },
   {
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
+    image: "/images/AirBNB/hero2.jpeg",
     title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
     location: "Siegen, Germany",
     price: "€325/night",
   },
   {
-    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
+    image: "/images/AirBNB/hero3.jpeg",
     title: "City Apartment in Siegen Parkplatz WLAN Autobahn",
+    location: "Siegen, Germany",
+    price: "€285/night",
+  },
+  {
+    image: "/images/AirBNB/hero4.jpeg",
+    title: "City Apartment in Siegen Parkplatz wlan Autobahn",
     location: "Siegen, Germany",
     price: "€285/night",
   },
@@ -45,11 +51,11 @@ export function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Parallax */}
       {heroSlides.map((s, i) => (
-        <div
-          key={s.title}
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{ opacity: i === current ? 1 : 0 }}
-        >
+  <div
+    key={`${s.title}-${i}`}
+    className="absolute inset-0 transition-opacity duration-1000"
+    style={{ opacity: i === current ? 1 : 0 }}
+  >
           <Image
             src={s.image || "/placeholder.svg"}
             alt={s.title}
