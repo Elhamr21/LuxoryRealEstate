@@ -16,7 +16,7 @@ export function AboutSection() {
           >
             <Image
               src="/images/hero-property.jpg"
-              alt="DEMA luxury property"
+              alt="Priem Residenz quality property"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -38,29 +38,29 @@ export function AboutSection() {
               ( Our Philosophy )
             </p>
             <h2 className="mb-8 font-serif text-4xl font-bold text-foreground md:text-5xl">
-              Luxury
+              Exceptional
               <br />
-              Experiences
+              Accommodations
             </h2>
             <p className="mb-6 font-sans text-base leading-relaxed text-muted-foreground">
-              At DEMA, we believe that travel accommodation is more than a place to sleep. It is a gateway
-              to authentic living, carefully curated for those who appreciate exceptional design and 
-              uncompromising quality. Our collection represents the finest luxury rental apartments,
-              each selected for its ability to inspire extraordinary moments.
+              At Priem Residenz, we believe that your accommodation is more than just a place to stay. It is a 
+              gateway to authentic living, carefully curated for those who appreciate exceptional comfort and 
+              uncompromising quality. Our collection represents premium rental properties across Siegen, 
+              Kreuztal, and Wilnsdorf, each selected for its ability to inspire memorable experiences.
             </p>
             <p className="mb-10 font-sans text-base leading-relaxed text-muted-foreground">
-              Founded by hospitality experts, interior designers, and travel enthusiasts,
-              we approach rental properties not as commodities but as curated experiences. Every listing
-              in our collection is designed to elevate your stay into something memorable.
+              Founded with a passion for hospitality and excellent service, we approach rental properties with 
+              care and attention to detail. Every listing in our collection is designed to provide the perfect 
+              base for your stay, whether for business, leisure, or special occasions.
             </p>
 
             {/* Values */}
             <div className="grid grid-cols-2 gap-6">
               {[
-                { label: "Curation", description: "Only exceptional luxury apartments meet our standards" },
-                { label: "Comfort", description: "Premium amenities and thoughtful design in every space" },
-                { label: "Authenticity", description: "Genuine local character combined with global luxury" },
-                { label: "Experience", description: "Every stay creates lasting memories and moments" },
+                { label: "Quality", description: "Carefully selected properties meeting high standards" },
+                { label: "Location", description: "Prime locations in Siegen, Kreuztal, and Wilnsdorf" },
+                { label: "Service", description: "Professional management and guest support" },
+                { label: "Comfort", description: "Modern amenities and thoughtful design in every space" },
               ].map((value) => (
                 <div key={value.label} className="flex flex-col gap-1">
                   <span className="font-serif text-lg font-semibold text-foreground">{value.label}</span>

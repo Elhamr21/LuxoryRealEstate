@@ -83,7 +83,7 @@ export function HeroSection() {
                   key={i}
                   className="mr-12 font-mono text-[10px] uppercase tracking-[0.3em] text-primary-foreground/50"
                 >
-                  Luxury Rentals &nbsp;&middot;&nbsp; Exceptional Apartments &nbsp;&middot;&nbsp; Premium Experiences &nbsp;&middot;&nbsp; Curated Properties &nbsp;&middot;&nbsp;
+                  Premium Rentals &nbsp;&middot;&nbsp; Comfortable Stays &nbsp;&middot;&nbsp; Local Expertise &nbsp;&middot;&nbsp; Quality Apartments &nbsp;&middot;&nbsp;
                 </span>
               ))}
             </div>

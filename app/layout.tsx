@@ -24,9 +24,9 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "DEMA | Luxury AIR BNB",
+  title: "Priem Residenz | Premium Rental Properties",
   description:
-    "Discover extraordinary residences through an immersive cinematic experience. Curated luxury properties worldwide.",
+    "Discover exceptional rental apartments and properties in Siegen, Kreuztal, and Wilnsdorf. Book your perfect stay with Priem Residenz.",
 }
 
 export const viewport: Viewport = {

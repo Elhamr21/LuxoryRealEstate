@@ -25,10 +25,10 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold tracking-tight text-foreground">
-            DEMA
+            Priem Residenz
           </span>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            Luxury Rentals
+            Quality Rentals
           </span>
         </Link>
 

@@ -44,11 +44,11 @@ export function ContactSection() {
 
             <div className="flex flex-col gap-6">
               {[
-                { label: "Email", detail: "hello@dema-rentals.com" },
-                { label: "Phone", detail: "+49 271 DEMA" },
-                { label: "Support", detail: "Available 24/7" },
+                { label: "Email", detail: "primeresidenz@web.de" },
+                { label: "Phone", detail: "01713739720" },
+                { label: "Phone", detail: "+49 271 3356715" },
               ].map((office) => (
-                <div key={office.label} className="flex items-center gap-4">
+                <div key={office.label + office.detail} className="flex items-center gap-4">
                   <span className="w-20 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground/40">
                     {office.label}
                   </span>
@@ -74,8 +74,8 @@ export function ContactSection() {
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-primary-foreground">Thank You</h3>
                 <p className="max-w-xs font-sans text-sm text-primary-foreground/60">
-                  A DEMA concierge specialist will be in touch within 24 hours to
-                  confirm your booking and arrange your stay.
+                  A Priem Residenz specialist will be in touch within 24 hours to
+                  confirm your inquiry and assist with your stay.
                 </p>
               </div>
             ) : (

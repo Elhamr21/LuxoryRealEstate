@@ -12,6 +12,9 @@ interface PropertyDetailProps {
 export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const [isRevealed, setIsRevealed] = useState(false)
   const [activeTab, setActiveTab] = useState<"overview" | "features" | "pricing">("overview")
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const images = property.images && property.images.length > 0 ? property.images : [property.image]
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -21,6 +24,14 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const handleBack = () => {
     setIsRevealed(false)
     setTimeout(onBack, 500)
+  }
+
+  const goToNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const goToPrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
   }
 
   const maxPrice = Math.max(...property.priceHistory.map((p) => p.price))
@@ -34,17 +45,53 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
         isRevealed ? "opacity-100" : "opacity-0 scale-[0.98]"
       }`}
     >
-      {/* Hero */}
+      {/* Hero with Image Gallery */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <Image
-          src={property.image || "/placeholder.svg"}
+          src={images[currentImageIndex] || "/placeholder.svg"}
           alt={property.title}
           fill
-          className="object-cover"
+          className="object-cover transition-opacity duration-500"
           priority
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/20 via-transparent to-foreground/60" />
+
+        {/* Image Navigation - Show only if multiple images */}
+        {images.length > 1 && (
+          <>
+            {/* Previous Button */}
+            <button
+              type="button"
+              onClick={goToPrevImage}
+              className="absolute left-6 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-sm bg-foreground/20 text-primary-foreground backdrop-blur-md transition-all hover:bg-foreground/40"
+              aria-label="Previous image"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Next Button */}
+            <button
+              type="button"
+              onClick={goToNextImage}
+              className="absolute right-6 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-sm bg-foreground/20 text-primary-foreground backdrop-blur-md transition-all hover:bg-foreground/40"
+              aria-label="Next image"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Image Counter */}
+            <div className="absolute bottom-6 right-6 z-20 rounded-sm bg-foreground/20 px-3 py-1 backdrop-blur-md">
+              <span className="font-mono text-[12px] text-primary-foreground">
+                {currentImageIndex + 1} / {images.length}
+              </span>
+            </div>
+          </>
+        )}
 
         {/* Back button */}
         <button
@@ -219,19 +266,29 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                     </div>
                   ))}
                 </div>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleBack()
-                    setTimeout(() => {
-                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                    }, 600)
-                  }}
-                  className="mt-4 rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
-                >
-                  Book Now
-                </a>
+                <div className="flex flex-col gap-3 pt-4">
+                  <a
+                    href={property.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
+                  >
+                    View on Booking
+                  </a>
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleBack()
+                      setTimeout(() => {
+                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                      }, 600)
+                    }}
+                    className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
+                  >
+                    Inquire
+                  </a>
+                </div>
               </div>
             </div>
           )}
