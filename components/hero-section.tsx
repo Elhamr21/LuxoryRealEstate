@@ -6,22 +6,22 @@ import Image from "next/image"
 const heroSlides = [
   {
     image: "/images/AirBNB/hero1.jpeg",
-    title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
-    location: "Siegen Stadtzentrum, Deutschland",
+    title: "Wohnung in Kreuztal-Zentrum",
+    location: "Kre, Deutschland",
   },
   {
     image: "/images/AirBNB/hero2.jpeg",
-    title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
+    title: "Großes Ferienhaus in Siegen-Kreuztal",
     location: "Siegen, Deutschland",
   },
   {
     image: "/images/AirBNB/hero3.jpeg",
-    title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
-    location: "Siegen, Deutschland",
+    title: "Charmante Wohnung in Kreuztal-Zentrum",
+    location: "Kreuztal, Deutschland",
   },
   {
     image: "/images/AirBNB/hero4.jpeg",
-    title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
+    title: "Neubauwohnung im Zentrum von Siegen",
     location: "Siegen, Deutschland",
   },
 ]

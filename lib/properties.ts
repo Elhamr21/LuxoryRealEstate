@@ -108,7 +108,7 @@ export const properties: Property[] = [
   },
   {
     id: "wilnsdorf-unterkunft",
-    title: "Komplettes Apartment in Wilnsdorf, Deutschland",
+    title: "Neubauwohnung im Zentrum von Siegen",
     subtitle: "Charmanter Landausflug",
     location: "Wilnsdorf, Deutschland",
     price: "€245/Nacht",
