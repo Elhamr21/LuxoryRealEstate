@@ -104,7 +104,7 @@ export const properties: Property[] = [
       { year: 2024, price: 310 },
       { year: 2025, price: 325 },
     ],
-    bookingUrl: "https://www.booking.com/Share-LTdUiT5",
+    bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen.de.html?aid=898224&app_hotel_id=15041507&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-z8vV9Q%401776087521&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
     id: "wilnsdorf-unterkunft",
@@ -142,7 +142,7 @@ export const properties: Property[] = [
       { year: 2024, price: 235 },
       { year: 2025, price: 245 },
     ],
-    bookingUrl: "https://www.booking.com/Share-Nmb6sX",
+    bookingUrl: "https://www.airbnb.de/rooms/1635504442875976412?unique_share_id=cffa133a-f21a-4409-8dbe-a77717b1947c&viralityEntryPoint=1&s=76&source_impression_id=p3_1777023541_P34xcS0XDbXiJeuk",
   },
   {
     id: "siegen-zentrum",
@@ -181,7 +181,7 @@ export const properties: Property[] = [
       { year: 2024, price: 350 },
       { year: 2025, price: 360 },
     ],
-    bookingUrl: "https://www.booking.com/Share-Y1eNPV",
+    bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen-zentrum.de.html?aid=898224&app_hotel_id=15343910&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-L3jkr5U%401776087505&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
     id: "moderne-wohnung-siegen",
@@ -220,7 +220,7 @@ export const properties: Property[] = [
       { year: 2024, price: 275 },
       { year: 2025, price: 275 },
     ],
-    bookingUrl: "https://www.booking.com/Share-lNqi6YW",
+    bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
     id: "charmante-wohnung-kreuztal",
@@ -259,7 +259,7 @@ export const properties: Property[] = [
       { year: 2024, price: 225 },
       { year: 2025, price: 225 },
     ],
-    bookingUrl: "https://www.booking.com/Share-LTdUiT5",
+    bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
     id: "modernes-ferienhaus-kreuztal",
@@ -298,7 +298,7 @@ export const properties: Property[] = [
       { year: 2024, price: 310 },
       { year: 2025, price: 310 },
     ],
-    bookingUrl: "https://www.booking.com/Share-Nmb6sX",
+    bookingUrl: "https://www.booking.com/hotel/de/wohnung-in-ruhiger-lage-von-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15608751&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Y1eNPV%401776873296&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
   {
     id: "city-wohnung-balkon-kreuztal",
@@ -337,7 +337,7 @@ export const properties: Property[] = [
       { year: 2024, price: 235 },
       { year: 2025, price: 235 },
     ],
-    bookingUrl: "https://www.booking.com/Share-Y1eNPV",
+    bookingUrl: "https://www.booking.com/hotel/de/idyllisches-ferienhaus-in-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15628008&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Nmb6sX%401776873287&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
   {
     id: "grosses-ferienhaus-siegen-kreuztal",
@@ -376,7 +376,7 @@ export const properties: Property[] = [
       { year: 2024, price: 335 },
       { year: 2025, price: 340 },
     ],
-    bookingUrl: "https://www.booking.com/Share-6Gf5BI",
+    bookingUrl: "https://www.booking.com/hotel/de/waldlicht-apartments-in-siegen-kreuztal.de.html?aid=898224&app_hotel_id=15161302&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-6Gf5BI%401776873303&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
 ]
 

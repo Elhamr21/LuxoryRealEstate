@@ -15,7 +15,7 @@ export function AboutSection() {
             className={`relative aspect-[3/4] overflow-hidden lg:aspect-auto ${isVisible ? "animate-morph-in" : "opacity-0"}`}
           >
             <Image
-              src="/images/hero-property.jpg"
+              src="/images/hero-property.png"
               alt="Hochwertige Unterkunft von Priem Residenz"
               fill
               className="object-cover"
