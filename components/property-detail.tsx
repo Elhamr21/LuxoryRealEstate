@@ -145,7 +145,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tabs */}
         <div className="mb-10 flex gap-1 border-b border-border">
-          {(["overview", "features", "pricing"] as const).map((tab) => (
+          {(["overview", "features"] as const).map((tab) => (
             <button
               key={tab}
               type="button"
@@ -163,7 +163,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tab Content */}
         <div className="animate-fade-in">
-          {activeTab === "overview" && (
+          {activeTab ===  "overview" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
                 <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">About this Rental</h3>
@@ -220,7 +220,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             </div>
           )}
 
-          {activeTab === "pricing" && (
+          {activeTab === "overview" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
                 <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Nightly Rates</h3>

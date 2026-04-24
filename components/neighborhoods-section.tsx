@@ -26,7 +26,7 @@ const neighborhoods = [
   {
     name: "Wilnsdorf",
     country: "Germany",
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland1.jpg",
+    image: "/images/AirBNB/hero4.jpeg",
     properties: 1,
     avgPrice: "€245/night",
     description: "Escape to the countryside with luxury apartments nestled in picturesque Wilnsdorf, perfect for a serene retreat.",
@@ -35,7 +35,7 @@ const neighborhoods = [
   {
     name: "Siegen Parkplatz",
     country: "Germany",
-    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
+    image: "/images/AirBNB/hero3.jpeg",
     properties: 1,
     avgPrice: "€285/night",
     description: "Modern apartments with convenient parking and highway access, ideal for business travelers and weekend getaways.",

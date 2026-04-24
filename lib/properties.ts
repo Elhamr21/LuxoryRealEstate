@@ -113,9 +113,9 @@ export const properties: Property[] = [
     location: "Wilnsdorf, Germany",
     price: "€245/night",
     priceValue: 245,
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
+    image: "/images/AirBNB/hero4.jpeg",
     images: [
-      "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
+      "/images/AirBNB/hero4.jpeg",
     ],
     beds: 2,
     baths: 1,
