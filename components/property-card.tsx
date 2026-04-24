@@ -92,17 +92,6 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
             </span>
           </div>
 
-          {/* Price on hover */}
-          <div
-            className={`absolute bottom-4 right-4 transition-all duration-500 ${
-              isHovered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-            }`}
-          >
-            <span className="font-mono text-sm text-primary-foreground">
-              {property.price}
-            </span>
-          </div>
-
           {/* Explore prompt */}
           <div
             className={`absolute inset-x-0 bottom-0 flex items-center justify-center pb-8 transition-all duration-500 ${
@@ -130,18 +119,13 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
 
         {/* Info */}
         <div className="mt-5 flex flex-col gap-2">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-accent">
-                {property.title}
-              </h3>
-              <p className="mt-0.5 font-sans text-sm text-muted-foreground">
-                {property.location}
-              </p>
-            </div>
-            <span className="shrink-0 font-mono text-xs text-muted-foreground">
-              {property.price}
-            </span>
+          <div>
+            <h3 className="font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-accent">
+              {property.title}
+            </h3>
+            <p className="mt-0.5 font-sans text-sm text-muted-foreground">
+              {property.location}
+            </p>
           </div>
 
           <div className="flex items-center gap-4 border-t border-border pt-3">

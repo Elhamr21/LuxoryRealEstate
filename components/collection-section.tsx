@@ -112,7 +112,7 @@ export function CollectionSection() {
             { label: "Mietungen", value: "4" },
             { label: "Standorte", value: "2" },
             { label: "Durchschn. Bewertung", value: "4.9★" },
-            { label: "Durchschn. Preis", value: "€304/N" },
+            { label: "Verfügbarkeit", value: "Ganzjährig" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
               <span className="font-serif text-3xl font-bold text-foreground md:text-4xl">

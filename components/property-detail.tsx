@@ -11,11 +11,13 @@ interface PropertyDetailProps {
 
 export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const [isRevealed, setIsRevealed] = useState(false)
-  const [activeTab, setActiveTab] = useState<"Übersicht" | "Ausstattung" | "Preise">("Übersicht")
+  const [activeTab, setActiveTab] = useState<"Übersicht" | "Ausstattung">("Übersicht")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = property.images && property.images.length > 0 ? property.images : [property.image]
-
+  const maxClients = Math.max(...property.clientHistory.map((entry) => entry.clients))
+  const minClients = Math.min(...property.clientHistory.map((entry) => entry.clients))
+  const clientRange = maxClients - minClients
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
     requestAnimationFrame(() => setIsRevealed(true))
@@ -33,10 +35,6 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const goToPrevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
   }
-
-  const maxPrice = Math.max(...property.priceHistory.map((p) => p.price))
-  const minPrice = Math.min(...property.priceHistory.map((p) => p.price))
-  const priceRange = maxPrice - minPrice
 
   return (
     <section
@@ -116,8 +114,6 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <span className="font-sans text-lg text-primary-foreground/80">{property.location}</span>
-              <span className="h-px w-8 bg-primary-foreground/30" />
-              <span className="font-mono text-lg font-semibold text-primary-foreground">{property.price}</span>
             </div>
           </div>
         </div>
@@ -163,40 +159,109 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tab Content */}
         <div className="animate-fade-in">
-          {activeTab ===  "Übersicht" && (
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Über diese Unterkunft</h3>
-                <p className="font-sans text-base leading-relaxed text-muted-foreground">{property.description}</p>
-                <div className="mt-8 flex flex-col gap-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Verwaltet von</p>
-                  <p className="font-serif text-lg text-foreground">{property.architect}</p>
+          {activeTab === "Übersicht" && (
+            <div className="flex flex-col gap-12">
+              <div className="grid gap-12 lg:grid-cols-2">
+                <div>
+                  <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Über diese Unterkunft</h3>
+                  <p className="font-sans text-base leading-relaxed text-muted-foreground">{property.description}</p>
+                  <div className="mt-8 flex flex-col gap-3">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Verwaltet von</p>
+                    <p className="font-serif text-lg text-foreground">{property.architect}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6">
+                  <h3 className="font-serif text-2xl font-semibold text-foreground">Umgebung</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { label: "Laufscore", value: property.neighborhood.walkScore, max: 100 },
+                      { label: "ÖPNV-Score", value: property.neighborhood.transitScore, max: 100 },
+                      { label: "Schulen in der Nähe", value: property.neighborhood.schools, max: 20 },
+                      { label: "Restaurants", value: property.neighborhood.restaurants, max: 200 },
+                    ].map((item) => (
+                      <div key={item.label} className="rounded-sm border border-border p-4">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                            {item.label}
+                          </span>
+                          <span className="font-mono text-sm font-semibold text-foreground">{item.value}</span>
+                        </div>
+                        <div className="h-1 w-full overflow-hidden rounded-full bg-muted">
+                          <div
+                            className="h-full rounded-full bg-accent transition-all duration-1000"
+                            style={{ width: `${(item.value / item.max) * 100}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground">Umgebung</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: "Laufscore", value: property.neighborhood.walkScore, max: 100 },
-                    { label: "ÖPNV-Score", value: property.neighborhood.transitScore, max: 100 },
-                    { label: "Schulen in der Nähe", value: property.neighborhood.schools, max: 20 },
-                    { label: "Restaurants", value: property.neighborhood.restaurants, max: 200 },
-                  ].map((item) => (
-                    <div key={item.label} className="rounded-sm border border-border p-4">
-                      <div className="mb-2 flex items-center justify-between">
-                        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                          {item.label}
-                        </span>
+
+              <div className="grid gap-8 lg:grid-cols-[1.6fr_0.9fr]">
+                <div className="rounded-sm border border-border p-6">
+                  <div className="mb-6 flex items-end justify-between gap-6">
+                    <div>
+                      <h3 className="font-serif text-2xl font-semibold text-foreground">Kundenhistorie</h3>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                        Jaehrliche Gaeste pro Unterkunft
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex h-64 items-end gap-3">
+                    {property.clientHistory.map((entry) => {
+                      const height = clientRange > 0 ? ((entry.clients - minClients) / clientRange) * 75 + 25 : 55
+
+                      return (
+                        <div key={entry.year} className="flex flex-1 flex-col items-center gap-3">
+                          <span className="font-mono text-[10px] text-muted-foreground">{entry.clients}</span>
+                          <div
+                            className="w-full rounded-t-sm bg-accent/80 transition-all duration-700 hover:bg-accent"
+                            style={{ height: `${height}%` }}
+                          />
+                          <span className="font-mono text-[10px] text-muted-foreground">{entry.year}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <div className="rounded-sm border border-border p-6">
+                  <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Buchungsdetails</h3>
+                  <div className="flex flex-col gap-4">
+                    {[
+                      {
+                        label: "Mindestaufenthalt",
+                        value: "1 Nacht",
+                      },
+                      { label: "Stornierungsbedingungen", value: "Flexibel" },
+                      { label: "Verfügbarkeit", value: "Ganzjährig" },
+                    ].map((item) => (
+                      <div key={item.label} className="flex items-center justify-between border-b border-border pb-3">
+                        <span className="font-mono text-xs text-muted-foreground">{item.label}</span>
                         <span className="font-mono text-sm font-semibold text-foreground">{item.value}</span>
                       </div>
-                      <div className="h-1 w-full overflow-hidden rounded-full bg-muted">
-                        <div
-                          className="h-full rounded-full bg-accent transition-all duration-1000"
-                          style={{ width: `${(item.value / item.max) * 100}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-3 pt-4">
+                    <a
+                      href={property.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
+                    >
+                      Auf Booking ansehen
+                    </a>
+                    <a
+                      href="https://wa.me/38344809852?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
+                    >
+                      Über WhatsApp anfragen
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,74 +282,6 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                   <span className="font-sans text-sm text-foreground">{feature}</span>
                 </div>
               ))}
-            </div>
-          )}
-
-          {activeTab === "Übersicht" && (
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Preise pro Nacht</h3>
-                {/* Simple chart */}
-                <div className="relative h-64 w-full rounded-sm border border-border p-6">
-                  <div className="flex h-full items-end gap-3">
-                    {property.priceHistory.map((entry) => {
-                      const height = priceRange > 0 ? ((entry.price - minPrice) / priceRange) * 80 + 20 : 50
-                      return (
-                        <div key={entry.year} className="flex flex-1 flex-col items-center gap-2">
-                          <span className="font-mono text-[9px] text-muted-foreground">
-                            €{entry.price}
-                          </span>
-                          <div
-                            className="w-full rounded-t-sm bg-accent/80 transition-all duration-700 hover:bg-accent"
-                            style={{ height: `${height}%` }}
-                          />
-                          <span className="font-mono text-[9px] text-muted-foreground">{entry.year}</span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground">Buchungsdetails</h3>
-                <div className="flex flex-col gap-4">
-                  {[
-                    {
-                      label: "Aktueller Nachtpreis",
-                      value: property.price,
-                    },
-                    {
-                      label: "Mindestaufenthalt",
-                      value: "1 Nacht",
-                    },
-                    { label: "Stornierungsbedingungen", value: "Flexibel" },
-                    { label: "Verfügbarkeit", value: "Ganzjährig" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center justify-between border-b border-border pb-3">
-                      <span className="font-mono text-xs text-muted-foreground">{item.label}</span>
-                      <span className="font-mono text-sm font-semibold text-foreground">{item.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-3 pt-4">
-                  <a
-                    href={property.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
-                  >
-                    Auf Booking ansehen
-                  </a>
-                  <a
-                    href="https://wa.me/38344809852?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
-                  >
-                    Über WhatsApp anfragen
-                  </a>
-                </div>
-              </div>
             </div>
           )}
         </div>

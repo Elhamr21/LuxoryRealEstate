@@ -32,7 +32,7 @@ const marketData = {
     },
     {
       title: "Premium Innenstadt",
-      description: "Wohnungen im Stadtzentrum erzielen aufgrund ihrer außergewöhnlichen Lage und Ausstattung 28 % höhere Nachtpreise.",
+      description: "Wohnungen im Stadtzentrum heben sich durch ihre außergewöhnliche Lage und Ausstattung besonders deutlich in unserem Portfolio hervor.",
       change: "+28%",
     },
     {

@@ -8,25 +8,21 @@ const heroSlides = [
     image: "/images/AirBNB/hero1.jpeg",
     title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
     location: "Siegen Stadtzentrum, Deutschland",
-    price: "€360/Nacht",
   },
   {
     image: "/images/AirBNB/hero2.jpeg",
     title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
     location: "Siegen, Deutschland",
-    price: "€325/Nacht",
   },
   {
     image: "/images/AirBNB/hero3.jpeg",
     title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
     location: "Siegen, Deutschland",
-    price: "€285/Nacht",
   },
   {
     image: "/images/AirBNB/hero4.jpeg",
     title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
     location: "Siegen, Deutschland",
-    price: "€285/Nacht",
   },
 ]
 
@@ -112,10 +108,6 @@ export function HeroSection() {
               <div className="mt-4 flex items-center gap-4">
                 <span className="font-sans text-lg text-primary-foreground/80">
                   {slide.location}
-                </span>
-                <span className="h-px w-8 bg-primary-foreground/30" />
-                <span className="font-mono text-sm text-primary-foreground/60">
-                  {slide.price}
                 </span>
               </div>
             </div>

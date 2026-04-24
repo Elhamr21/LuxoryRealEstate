@@ -23,7 +23,7 @@ export interface Property {
     schools: number
     restaurants: number
   }
-  priceHistory: { year: number; price: number }[]
+  clientHistory: { year: number; clients: number }[]
   bookingUrl: string
 }
 
@@ -58,12 +58,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8783, lng: 8.0316 },
     neighborhood: { walkScore: 65, transitScore: 55, schools: 3, restaurants: 18 },
-    priceHistory: [
-      { year: 2021, price: 220 },
-      { year: 2022, price: 240 },
-      { year: 2023, price: 260 },
-      { year: 2024, price: 275 },
-      { year: 2025, price: 285 },
+    clientHistory: [
+      { year: 2021, clients: 220 },
+      { year: 2022, clients: 240 },
+      { year: 2023, clients: 260 },
+      { year: 2024, clients: 275 },
+      { year: 2025, clients: 285 },
     ],
     bookingUrl: "https://www.booking.com/Share-z8voFe",
   },
@@ -97,12 +97,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8771, lng: 8.0288 },
     neighborhood: { walkScore: 78, transitScore: 72, schools: 5, restaurants: 32 },
-    priceHistory: [
-      { year: 2021, price: 245 },
-      { year: 2022, price: 270 },
-      { year: 2023, price: 295 },
-      { year: 2024, price: 310 },
-      { year: 2025, price: 325 },
+    clientHistory: [
+      { year: 2021, clients: 245 },
+      { year: 2022, clients: 270 },
+      { year: 2023, clients: 295 },
+      { year: 2024, clients: 310 },
+      { year: 2025, clients: 325 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen.de.html?aid=898224&app_hotel_id=15041507&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-z8vV9Q%401776087521&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
@@ -135,12 +135,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.7542, lng: 8.2183 },
     neighborhood: { walkScore: 42, transitScore: 35, schools: 2, restaurants: 12 },
-    priceHistory: [
-      { year: 2021, price: 180 },
-      { year: 2022, price: 205 },
-      { year: 2023, price: 220 },
-      { year: 2024, price: 235 },
-      { year: 2025, price: 245 },
+    clientHistory: [
+      { year: 2021, clients: 180 },
+      { year: 2022, clients: 205 },
+      { year: 2023, clients: 220 },
+      { year: 2024, clients: 235 },
+      { year: 2025, clients: 245 },
     ],
     bookingUrl: "https://www.airbnb.de/rooms/1635504442875976412?unique_share_id=cffa133a-f21a-4409-8dbe-a77717b1947c&viralityEntryPoint=1&s=76&source_impression_id=p3_1777023541_P34xcS0XDbXiJeuk",
   },
@@ -174,12 +174,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8761, lng: 8.0263 },
     neighborhood: { walkScore: 89, transitScore: 85, schools: 8, restaurants: 52 },
-    priceHistory: [
-      { year: 2021, price: 280 },
-      { year: 2022, price: 310 },
-      { year: 2023, price: 335 },
-      { year: 2024, price: 350 },
-      { year: 2025, price: 360 },
+    clientHistory: [
+      { year: 2021, clients: 280 },
+      { year: 2022, clients: 310 },
+      { year: 2023, clients: 335 },
+      { year: 2024, clients: 350 },
+      { year: 2025, clients: 360 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen-zentrum.de.html?aid=898224&app_hotel_id=15343910&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-L3jkr5U%401776087505&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
@@ -213,12 +213,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8783, lng: 8.0316 },
     neighborhood: { walkScore: 65, transitScore: 55, schools: 3, restaurants: 18 },
-    priceHistory: [
-      { year: 2021, price: 220 },
-      { year: 2022, price: 240 },
-      { year: 2023, price: 260 },
-      { year: 2024, price: 275 },
-      { year: 2025, price: 275 },
+    clientHistory: [
+      { year: 2021, clients: 220 },
+      { year: 2022, clients: 240 },
+      { year: 2023, clients: 260 },
+      { year: 2024, clients: 275 },
+      { year: 2025, clients: 275 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
@@ -252,12 +252,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 58, transitScore: 48, schools: 2, restaurants: 12 },
-    priceHistory: [
-      { year: 2021, price: 180 },
-      { year: 2022, price: 200 },
-      { year: 2023, price: 215 },
-      { year: 2024, price: 225 },
-      { year: 2025, price: 225 },
+    clientHistory: [
+      { year: 2021, clients: 180 },
+      { year: 2022, clients: 200 },
+      { year: 2023, clients: 215 },
+      { year: 2024, clients: 225 },
+      { year: 2025, clients: 225 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
@@ -291,12 +291,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 72, transitScore: 65, schools: 4, restaurants: 20 },
-    priceHistory: [
-      { year: 2021, price: 260 },
-      { year: 2022, price: 280 },
-      { year: 2023, price: 295 },
-      { year: 2024, price: 310 },
-      { year: 2025, price: 310 },
+    clientHistory: [
+      { year: 2021, clients: 260 },
+      { year: 2022, clients: 280 },
+      { year: 2023, clients: 295 },
+      { year: 2024, clients: 310 },
+      { year: 2025, clients: 310 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/wohnung-in-ruhiger-lage-von-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15608751&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Y1eNPV%401776873296&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
@@ -330,12 +330,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 68, transitScore: 58, schools: 3, restaurants: 16 },
-    priceHistory: [
-      { year: 2021, price: 190 },
-      { year: 2022, price: 210 },
-      { year: 2023, price: 225 },
-      { year: 2024, price: 235 },
-      { year: 2025, price: 235 },
+    clientHistory: [
+      { year: 2021, clients: 190 },
+      { year: 2022, clients: 210 },
+      { year: 2023, clients: 225 },
+      { year: 2024, clients: 235 },
+      { year: 2025, clients: 235 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/idyllisches-ferienhaus-in-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15628008&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Nmb6sX%401776873287&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
@@ -369,12 +369,12 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8900, lng: 8.0100 },
     neighborhood: { walkScore: 55, transitScore: 50, schools: 3, restaurants: 14 },
-    priceHistory: [
-      { year: 2021, price: 280 },
-      { year: 2022, price: 300 },
-      { year: 2023, price: 320 },
-      { year: 2024, price: 335 },
-      { year: 2025, price: 340 },
+    clientHistory: [
+      { year: 2021, clients: 280 },
+      { year: 2022, clients: 300 },
+      { year: 2023, clients: 320 },
+      { year: 2024, clients: 335 },
+      { year: 2025, clients: 340 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/waldlicht-apartments-in-siegen-kreuztal.de.html?aid=898224&app_hotel_id=15161302&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-6Gf5BI%401776873303&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },

@@ -10,7 +10,6 @@ const neighborhoods = [
     country: "Deutschland",
     image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
     properties: 2,
-    avgPrice: "€342/Nacht",
     description: "Erleben Sie das vibrierende Herz Siegens mit Premium Innenstadtapartments, die modernen Luxus und außergewöhnlichen Zugang zur lokalen Kultur bieten.",
     highlights: ["Stadtzentrum", "Modernes Design", "Leichte Erreichbarkeit"],
   },
@@ -19,7 +18,6 @@ const neighborhoods = [
     country: "Deutschland",
     image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
     properties: 1,
-    avgPrice: "€325/Nacht",
     description: "Charmante Vorortlagen in Siegen, die Ruhe mit praktischem Zugang zu Annehmlichkeiten und dem Stadtzentrum bieten.",
     highlights: ["Ruhige Umgebung", "Geräumig", "Lokaler Charakter"],
   },
@@ -28,7 +26,6 @@ const neighborhoods = [
     country: "Deutschland",
     image: "/images/AirBNB/hero4.jpeg",
     properties: 1,
-    avgPrice: "€245/Nacht",
     description: "Fliehen Sie aufs Land mit Luxusappartments in der malerischen Gegend von Wilnsdorf, perfekt für einen ruhigen Rückzug.",
     highlights: ["Landgebiet", "Natürliche Schönheit", "Ruhig"],
   },
@@ -37,7 +34,6 @@ const neighborhoods = [
     country: "Deutschland",
     image: "/images/AirBNB/hero3.jpeg",
     properties: 1,
-    avgPrice: "€285/Nacht",
     description: "Moderne Apartments mit praktischem Parkplatz und Autobahnzugang, ideal für Geschäftsreisende und Wochenendausflüge.",
     highlights: ["Kostenfreies WiFi", "Leichte Parkierung", "Autobahnzugang"],
   },
@@ -150,24 +146,13 @@ export function NeighborhoodsSection() {
                 <p className="mb-4 font-sans text-base leading-relaxed text-muted-foreground">
                   {neighborhood.description}
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Ab
-                    </span>
-                    <span className="font-serif text-2xl font-semibold text-foreground">
-                      {neighborhood.avgPrice}
-                    </span>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Verfügbar
-                    </span>
-                    <span className="font-serif text-2xl font-semibold text-foreground">
-                      {neighborhood.properties}
-                    </span>
-                  </div>
+                <div className="flex flex-col gap-1">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Verfügbar
+                  </span>
+                  <span className="font-serif text-2xl font-semibold text-foreground">
+                    {neighborhood.properties}
+                  </span>
                 </div>
               </div>
               <a
