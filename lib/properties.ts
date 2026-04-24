@@ -30,7 +30,7 @@ export interface Property {
 export const properties: Property[] = [
   {
     id: "siegen-parkplatz-wlan",
-    title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
+    title: "Stadtwohnung in Siegen, Deutschland",
     subtitle: "Moderner urbaner Komfort mit nahtlosem Zugang",
     location: "Siegen, Deutschland",
     price: "€285/Nacht",
@@ -146,7 +146,7 @@ export const properties: Property[] = [
   },
   {
     id: "siegen-zentrum",
-    title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
+    title: "Stadtwohnung in Siegen-Zentrum",
     subtitle: "Premium Innenstadtwohnen",
     location: "Siegen Innenstadt, Deutschland",
     price: "€360/Nacht",
@@ -185,7 +185,7 @@ export const properties: Property[] = [
   },
   {
     id: "moderne-wohnung-siegen",
-    title: "Moderne Wohnung in Siegen Parkplatz WLAN",
+    title: "Moderne Wohnung in Siegen",
     subtitle: "Moderner Komfort mit Premium-Ausstattung",
     location: "Siegen, Deutschland",
     price: "€275/Nacht",
@@ -341,7 +341,7 @@ export const properties: Property[] = [
   },
   {
     id: "grosses-ferienhaus-siegen-kreuztal",
-    title: "Großes Ferienhaus in Siegen-Kreuztal auch für Monteure",
+    title: "Großes Ferienhaus in Siegen-Kreuztal",
     subtitle: "Großzügiges Familienhaus mit mehreren Annehmlichkeiten",
     location: "Siegen-Kreuztal, Deutschland",
     price: "€340/Nacht",
