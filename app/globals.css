@@ -60,6 +60,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

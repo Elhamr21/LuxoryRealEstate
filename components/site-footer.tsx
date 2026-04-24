@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background px-6 py-16 lg:px-10">
@@ -19,13 +21,13 @@ export function SiteFooter() {
             </span>
             {["Stadtwohnungen", "Stadtzentrum", "Ländlich", "Modernes Design", "Premium-Ausstattung", "Rundum-Service"].map(
               (item) => (
-                <a
+                <Link
                   key={item}
-                  href="#collection"
+                  href="/collection"
                   className="font-sans text-sm text-foreground/70 transition-colors hover:text-foreground"
                 >
                   {item}
-                </a>
+                </Link>
               )
             )}
           </div>
@@ -36,13 +38,13 @@ export function SiteFooter() {
             </span>
             {["Aufenthalt buchen", "Gruppenbuchungen", "Längere Aufenthalte", "Gästeservice", "Concierge", "Sonderwünsche"].map(
               (item) => (
-                <a
+                <Link
                   key={item}
-                  href="#contact"
+                  href="/#contact"
                   className="font-sans text-sm text-foreground/70 transition-colors hover:text-foreground"
                 >
                   {item}
-                </a>
+                </Link>
               )
             )}
           </div>

@@ -156,7 +156,7 @@ export function NeighborhoodsSection() {
                 </div>
               </div>
               <a
-                href="#collection"
+                href="/collection"
                 className="mt-8 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-accent transition-colors hover:text-foreground"
               >
                 {neighborhood.name} Unterkünfte ansehen

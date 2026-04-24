@@ -4,17 +4,18 @@ import React from "react"
 
 import { useState, useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import type { Property } from "@/lib/properties"
 
 interface PropertyCardProps {
   property: Property
   index: number
-  onSelect: (property: Property) => void
+  href: string
 }
 
-export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
+export function PropertyCard({ property, index, href }: PropertyCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLAnchorElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -38,7 +39,8 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
   }
 
   return (
-    <div
+    <Link
+      href={href}
       ref={cardRef}
       className="group cursor-pointer"
       style={{
@@ -48,15 +50,6 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
-      onClick={() => onSelect(property)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          onSelect(property)
-        }
-      }}
-      role="button"
-      tabIndex={0}
       aria-label={`${property.title} in ${property.location} ansehen`}
     >
       <div
@@ -143,6 +136,6 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

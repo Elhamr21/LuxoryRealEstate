@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import type { Property } from "@/lib/properties"
 
 interface PropertyDetailProps {
   property: Property
-  onBack: () => void
+  backHref?: string
 }
 
-export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
+export function PropertyDetail({ property, backHref = "/collection" }: PropertyDetailProps) {
   const [isRevealed, setIsRevealed] = useState(false)
   const [activeTab, setActiveTab] = useState<"Übersicht" | "Ausstattung">("Übersicht")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -22,11 +23,6 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
     window.scrollTo({ top: 0, behavior: "smooth" })
     requestAnimationFrame(() => setIsRevealed(true))
   }, [])
-
-  const handleBack = () => {
-    setIsRevealed(false)
-    setTimeout(onBack, 500)
-  }
 
   const goToNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length)
@@ -92,16 +88,15 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
         )}
 
         {/* Back button */}
-        <button
-          type="button"
-          onClick={handleBack}
+        <Link
+          href={backHref}
           className="absolute left-6 top-24 z-20 flex items-center gap-2 rounded-sm border border-primary-foreground/30 bg-foreground/20 px-4 py-2 text-primary-foreground backdrop-blur-md transition-all hover:bg-foreground/40 lg:left-10"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
           <span className="font-mono text-[10px] uppercase tracking-[0.15em]">Zurück</span>
-        </button>
+        </Link>
 
         {/* Property title overlay */}
         <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-12 lg:px-10">

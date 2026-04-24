@@ -44,7 +44,7 @@ export function HeroSection() {
   const slide = heroSlides[current]
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="top" className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Parallax */}
       {heroSlides.map((s, i) => (
   <div
@@ -114,7 +114,7 @@ export function HeroSection() {
 
             <div className="flex flex-col items-start gap-4 lg:items-end">
               <a
-                href="#collection"
+                href="/collection"
                 className="group flex items-center gap-3 rounded-sm border border-primary-foreground/30 px-8 py-3 text-primary-foreground transition-all hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
                 <span className="font-mono text-xs uppercase tracking-[0.15em]">

@@ -2,10 +2,20 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
+
+  const navigationItems = [
+    { label: "Kollektion", href: "/collection" },
+    { label: "Nachbarschaften", href: isHomePage ? "#neighborhoods" : "/#neighborhoods" },
+    { label: "Markt", href: isHomePage ? "#market" : "/#market" },
+    { label: "Über", href: isHomePage ? "#about" : "/#about" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -23,7 +33,7 @@ export function Navigation() {
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/#top" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold tracking-tight text-foreground">
             Prime Residenz
           </span>
@@ -34,13 +44,13 @@ export function Navigation() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-10 md:flex">
-          {["Kollektion", "Nachbarschaften", "Markt", "Über"].map((item) => (
+          {navigationItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae').replace(/ß/g, 'ss')}`}
+              key={item.label}
+              href={item.href}
               className="group relative font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item}
+              {item.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
@@ -49,7 +59,7 @@ export function Navigation() {
         {/* CTA + Menu */}
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href={isHomePage ? "#contact" : "/#contact"}
             className="hidden rounded-sm bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90 md:inline-block"
           >
             Jetzt Buchen
@@ -83,18 +93,18 @@ export function Navigation() {
         }`}
       >
         <div className="flex flex-col gap-4 bg-background/95 px-6 pb-8 pt-2 backdrop-blur-md">
-          {["Kollektion", "Nachbarschaften", "Markt", "Über"].map((item) => (
+          {navigationItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMenuOpen(false)}
               className="font-mono text-sm uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item}
+              {item.label}
             </a>
           ))}
           <a
-            href="#contact"
+            href={isHomePage ? "#contact" : "/#contact"}
             onClick={() => setMenuOpen(false)}
             className="mt-2 rounded-sm bg-primary px-5 py-2.5 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground"
           >
