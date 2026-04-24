@@ -74,7 +74,7 @@ export function ContactSection() {
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-primary-foreground">Vielen Dank</h3>
                 <p className="max-w-xs font-sans text-sm text-primary-foreground/60">
-                  Ein Spezialist von Priem Residenz wird sich innerhalb von 24 Stunden bei Ihnen melden,
+                  Ein Spezialist von Prime Residenz wird sich innerhalb von 24 Stunden bei Ihnen melden,
                   um Ihre Anfrage zu bestätigen und Sie bei Ihrem Aufenthalt zu unterstützen.
                 </p>
               </div>

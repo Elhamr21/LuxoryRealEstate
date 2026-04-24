@@ -201,7 +201,7 @@ export const properties: Property[] = [
     featured: false,
     description:
       "Entdecke modernen Komfort in dieser wunderschön eingerichteten Siegener Wohnung. Perfekt für Geschäftsreisende und Freizeitgäste mit kostenlosem WiFi, dediziertem Parkplatz und modernem Design überall. Der einfache Zugang zu Hauptautobahnen und lokalen Annehmlichkeiten macht dies zur idealen Wahl zum Erkunden der Region.",
-    architect: "Priem Residenz",
+    architect: "Prime Residenz",
     yearBuilt: 2018,
     features: [
       "Kostenloses WiFi",
@@ -240,7 +240,7 @@ export const properties: Property[] = [
     featured: false,
     description:
       "Flucht in diese charmante Wohnung in der ruhigen Mitte von Kreuztal. Die großzügige Terrasse überblickt ruhige Umgebungen, perfekt für Morgenkaffee oder abendliche Entspannung. Vollständig ausgestattet mit modernen Annehmlichkeiten bei Bewahrung einer gemütlichen, traditionellen Atmosphäre. Ideal für Paare oder kleine Familien, die Ruhe suchen.",
-    architect: "Priem Residenz",
+    architect: "Prime Residenz",
     yearBuilt: 2016,
     features: [
       "Private Terrasse",
@@ -279,7 +279,7 @@ export const properties: Property[] = [
     featured: false,
     description:
       "Dieses moderne Ferienhaus im Zentrum von Kreuztal bietet die perfekte Basis für deinen Aufenthalt. Mit drei geräumigen Schlafzimmern und modernen Annehmlichkeiten überall bietet es Familien und Gruppen komfortabel Platz. Die ruhige, aber praktische Lage platziert dich zu Fuß Entfernung zu lokalen Läden und Restaurants.",
-    architect: "Priem Residenz",
+    architect: "Prime Residenz",
     yearBuilt: 2019,
     features: [
       "Drei Schlafzimmer",
@@ -318,7 +318,7 @@ export const properties: Property[] = [
     featured: false,
     description:
       "Genießen Sie das Stadtleben in dieser attraktiven Wohnung mit schönem Balkon. Im ruhigen Zentrum von Kreuztal gelegen, verbindet dieses komfortable Zuhause modernes Design mit traditionellem Charme. Der Balkon bietet den perfekten Ort zum Entspannen nach der Erkundung der Gegend.",
-    architect: "Priem Residenz",
+    architect: "Prime Residenz",
     yearBuilt: 2017,
     features: [
       "Großzügiger Balkon",
@@ -357,7 +357,7 @@ export const properties: Property[] = [
     featured: false,
     description:
       "Dieses großzügige Familienhaus eignet sich perfekt für Gruppen und Arbeitsteams. Mit vier Schlafzimmern und mehreren Badezimmern gibt es reichlich Platz für alle. Ideal für längere Aufenthalte mit komfortablem häuslichem Umfeld mit allen modernen Annehmlichkeiten. Großartig für Familien, Freunde oder professionelle Teams.",
-    architect: "Priem Residenz",
+    architect: "Prime Residenz",
     yearBuilt: 2018,
     features: [
       "Vier Schlafzimmer",

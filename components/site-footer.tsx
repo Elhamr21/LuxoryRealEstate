@@ -7,7 +7,7 @@ export function SiteFooter() {
         {/* Top: Large brand */}
         <div className="mb-16">
           <span className="font-serif text-7xl font-bold tracking-tight text-foreground md:text-9xl lg:text-[10rem]">
-            Priem Residenz
+            Prime Residenz
           </span>
         </div>
 
@@ -85,7 +85,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-4">
             <span className="font-mono text-[10px] text-muted-foreground">
-              &copy; 2026 Priem Residenz
+              &copy; 2026 Prime Residenz
             </span>
             <span className="h-3 w-px bg-border" />
             <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">

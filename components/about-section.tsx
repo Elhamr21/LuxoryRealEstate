@@ -16,7 +16,7 @@ export function AboutSection() {
           >
             <Image
               src="/images/hero-property.png"
-              alt="Hochwertige Unterkunft von Priem Residenz"
+              alt="Hochwertige Unterkunft von Prime Residenz"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -43,7 +43,7 @@ export function AboutSection() {
               Unterkünfte
             </h2>
             <p className="mb-6 font-sans text-base leading-relaxed text-muted-foreground">
-              Bei Priem Residenz glauben wir, dass Ihre Unterkunft mehr ist als nur ein Ort zum Übernachten. Sie ist ein
+              Bei Prime Residenz glauben wir, dass Ihre Unterkunft mehr ist als nur ein Ort zum Übernachten. Sie ist ein
               Tor zu authentischem Wohnen, sorgfältig kuratiert für Menschen, die außergewöhnlichen Komfort und
               kompromisslose Qualität schätzen. Unsere Kollektion repräsentiert Premium-Mietobjekte in Siegen,
               Kreuztal und Wilnsdorf, die jeweils aufgrund ihrer Fähigkeit ausgewählt wurden, unvergessliche Erlebnisse zu schaffen.
