@@ -254,7 +254,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                       Auf Booking ansehen
                     </a>
                     <a
-                      href="https://wa.me/38344809852?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
+                      href="https://wa.me/492713356715?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
