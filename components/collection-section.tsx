@@ -6,25 +6,25 @@ import { PropertyCard } from "@/components/property-card"
 import { PropertyDetail } from "@/components/property-detail"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
-const filters = ["All", "Urban", "Suburban", "Luxury", "Modern", "Charming", "Garden View"] as const
+const filters = ["Alle", "Städtisch", "Vororte", "Luxus", "Modern", "Charmant", "Gartenblick"] as const
 
 const filterMap: Record<string, Property["type"] | "all"> = {
-  All: "all",
-  Urban: "urban",
-  Suburban: "country",
-  Luxury: "urban",
+  Alle: "all",
+  Städtisch: "urban",
+  Vororte: "country",
+  Luxus: "urban",
   Modern: "urban",
-  Charming: "country",
-  "Garden View": "country",
+  Charmant: "country",
+  "Gartenblick": "country",
 }
 
 export function CollectionSection() {
-  const [activeFilter, setActiveFilter] = useState<string>("All")
+  const [activeFilter, setActiveFilter] = useState<string>("Alle")
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null)
   const { ref, isVisible } = useScrollReveal(0.1)
 
   const filtered =
-    activeFilter === "All"
+    activeFilter === "Alle"
       ? properties
       : properties.filter((p) => p.type === filterMap[activeFilter])
 
@@ -48,16 +48,16 @@ export function CollectionSection() {
         >
           <div>
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              ( Our Collection )
-            </p>
+            ( Unsere Kollektion )
+          </p>
             <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-              Luxury
+              Luxus
               <br />
-              Apartments
+              Wohnungen
             </h2>
           </div>
           <p className="max-w-md font-sans text-sm leading-relaxed text-muted-foreground md:text-base">
-            Each property in our collection has been hand-selected for its exceptional design, premium location, and outstanding amenities for luxury short-term rentals.
+            Jede Immobilie in unserer Kollektion wurde sorgfältig aufgrund ihres außergewöhnlichen Designs, ihrer Premium-Lage und ihrer hervorragenden Annehmlichkeiten für luxuriöse Kurzzeitvermietungen ausgewählt.
           </p>
         </div>
 
@@ -109,10 +109,10 @@ export function CollectionSection() {
           style={{ animationDelay: "600ms" }}
         >
           {[
-            { label: "Rentals", value: "4" },
-            { label: "Locations", value: "2" },
-            { label: "Avg. Rating", value: "4.9★" },
-            { label: "Avg. Price", value: "€304/n" },
+            { label: "Mietungen", value: "4" },
+            { label: "Standorte", value: "2" },
+            { label: "Durchschn. Bewertung", value: "4.9★" },
+            { label: "Durchschn. Preis", value: "€304/N" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
               <span className="font-serif text-3xl font-bold text-foreground md:text-4xl">

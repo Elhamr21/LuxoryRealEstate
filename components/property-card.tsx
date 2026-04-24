@@ -29,12 +29,12 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
   const rotateY = isHovered ? (mousePosition.x - 0.5) * 8 : 0
 
   const typeLabel = {
-    oceanfront: "Oceanfront",
-    urban: "Urban Apartment",
-    country: "Countryside",
-    mountain: "Mountain",
-    tropical: "Tropical",
-    historic: "Historic",
+    oceanfront: "Am Wasser",
+    urban: "Stadtwohnung",
+    country: "Ländlich",
+    mountain: "Berge",
+    tropical: "Tropisch",
+    historic: "Historisch",
   }
 
   return (
@@ -57,7 +57,7 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
       }}
       role="button"
       tabIndex={0}
-      aria-label={`View ${property.title} - ${property.location}`}
+      aria-label={`${property.title} in ${property.location} ansehen`}
     >
       <div
         className="transition-transform duration-300 ease-out will-change-transform"
@@ -110,7 +110,7 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
             }`}
           >
             <span className="flex items-center gap-2 rounded-sm border border-primary-foreground/50 bg-foreground/20 px-5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground backdrop-blur-md">
-              View Rental
+              Unterkunft ansehen
               <svg
                 className="h-3 w-3"
                 fill="none"
@@ -146,15 +146,15 @@ export function PropertyCard({ property, index, onSelect }: PropertyCardProps) {
 
           <div className="flex items-center gap-4 border-t border-border pt-3">
             <span className="font-mono text-[11px] text-muted-foreground">
-              {property.beds} Beds
+              {property.beds} Betten
             </span>
             <span className="h-3 w-px bg-border" />
             <span className="font-mono text-[11px] text-muted-foreground">
-              {property.baths} Baths
+              {property.baths} Bäder
             </span>
             <span className="h-3 w-px bg-border" />
             <span className="font-mono text-[11px] text-muted-foreground">
-              {property.sqft} sqft
+              {property.sqft} Quadratfuß
             </span>
           </div>
         </div>

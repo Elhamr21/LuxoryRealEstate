@@ -11,7 +11,7 @@ interface PropertyDetailProps {
 
 export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
   const [isRevealed, setIsRevealed] = useState(false)
-  const [activeTab, setActiveTab] = useState<"overview" | "features" | "pricing">("overview")
+  const [activeTab, setActiveTab] = useState<"Übersicht" | "Ausstattung" | "Preise">("Übersicht")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = property.images && property.images.length > 0 ? property.images : [property.image]
@@ -65,7 +65,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
               type="button"
               onClick={goToPrevImage}
               className="absolute left-6 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-sm bg-foreground/20 text-primary-foreground backdrop-blur-md transition-all hover:bg-foreground/40"
-              aria-label="Previous image"
+              aria-label="Vorheriges Bild"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -77,7 +77,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
               type="button"
               onClick={goToNextImage}
               className="absolute right-6 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-sm bg-foreground/20 text-primary-foreground backdrop-blur-md transition-all hover:bg-foreground/40"
-              aria-label="Next image"
+              aria-label="Nächstes Bild"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -102,7 +102,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          <span className="font-mono text-[10px] uppercase tracking-[0.15em]">Back</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.15em]">Zurück</span>
         </button>
 
         {/* Property title overlay */}
@@ -128,11 +128,11 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
         {/* Quick Stats */}
         <div className="mb-16 grid grid-cols-2 gap-6 border-b border-border pb-12 md:grid-cols-5">
           {[
-            { label: "Bedrooms", value: String(property.beds) },
-            { label: "Bathrooms", value: String(property.baths) },
-            { label: "Living Area", value: `${property.sqft} sqft` },
-            { label: "Manager", value: property.architect },
-            { label: "Available Since", value: String(property.yearBuilt) },
+            { label: "Schlafzimmer", value: String(property.beds) },
+            { label: "Badezimmer", value: String(property.baths) },
+            { label: "Wohnfläche", value: `${property.sqft} Quadratfuß` },
+            { label: "Verwaltung", value: property.architect },
+            { label: "Verfügbar seit", value: String(property.yearBuilt) },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -145,7 +145,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tabs */}
         <div className="mb-10 flex gap-1 border-b border-border">
-          {(["overview", "features"] as const).map((tab) => (
+          {(["Übersicht", "Ausstattung"] as const).map((tab) => (
             <button
               key={tab}
               type="button"
@@ -163,23 +163,23 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
 
         {/* Tab Content */}
         <div className="animate-fade-in">
-          {activeTab ===  "overview" && (
+          {activeTab ===  "Übersicht" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">About this Rental</h3>
+                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Über diese Unterkunft</h3>
                 <p className="font-sans text-base leading-relaxed text-muted-foreground">{property.description}</p>
                 <div className="mt-8 flex flex-col gap-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Managed by</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Verwaltet von</p>
                   <p className="font-serif text-lg text-foreground">{property.architect}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground">Neighborhood</h3>
+                <h3 className="font-serif text-2xl font-semibold text-foreground">Umgebung</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { label: "Walk Score", value: property.neighborhood.walkScore, max: 100 },
-                    { label: "Transit Score", value: property.neighborhood.transitScore, max: 100 },
-                    { label: "Schools Nearby", value: property.neighborhood.schools, max: 20 },
+                    { label: "Laufscore", value: property.neighborhood.walkScore, max: 100 },
+                    { label: "ÖPNV-Score", value: property.neighborhood.transitScore, max: 100 },
+                    { label: "Schulen in der Nähe", value: property.neighborhood.schools, max: 20 },
                     { label: "Restaurants", value: property.neighborhood.restaurants, max: 200 },
                   ].map((item) => (
                     <div key={item.label} className="rounded-sm border border-border p-4">
@@ -202,7 +202,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             </div>
           )}
 
-          {activeTab === "features" && (
+          {activeTab === "Ausstattung" && (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {property.features.map((feature) => (
                 <div
@@ -220,10 +220,10 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
             </div>
           )}
 
-          {activeTab === "overview" && (
+          {activeTab === "Übersicht" && (
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
-                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Nightly Rates</h3>
+                <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Preise pro Nacht</h3>
                 {/* Simple chart */}
                 <div className="relative h-64 w-full rounded-sm border border-border p-6">
                   <div className="flex h-full items-end gap-3">
@@ -246,19 +246,19 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                 </div>
               </div>
               <div className="flex flex-col gap-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground">Booking Details</h3>
+                <h3 className="font-serif text-2xl font-semibold text-foreground">Buchungsdetails</h3>
                 <div className="flex flex-col gap-4">
                   {[
                     {
-                      label: "Current Nightly Rate",
+                      label: "Aktueller Nachtpreis",
                       value: property.price,
                     },
                     {
-                      label: "Minimum Stay",
-                      value: "1 night",
+                      label: "Mindestaufenthalt",
+                      value: "1 Nacht",
                     },
-                    { label: "Cancellation Policy", value: "Flexible" },
-                    { label: "Availability", value: "Year-round" },
+                    { label: "Stornierungsbedingungen", value: "Flexibel" },
+                    { label: "Verfügbarkeit", value: "Ganzjährig" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between border-b border-border pb-3">
                       <span className="font-mono text-xs text-muted-foreground">{item.label}</span>
@@ -273,7 +273,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                     rel="noopener noreferrer"
                     className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
                   >
-                    View on Booking
+                    Auf Booking ansehen
                   </a>
                   <a
                     href="#contact"
@@ -286,7 +286,7 @@ export function PropertyDetail({ property, onBack }: PropertyDetailProps) {
                     }}
                     className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
                   >
-                    Inquire
+                    Anfragen
                   </a>
                 </div>
               </div>

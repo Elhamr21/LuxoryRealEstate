@@ -5,10 +5,10 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const marketData = {
   regions: [
-    { name: "Germany", growth: 85, volume: "92%", properties: 4 },
-    { name: "Central Europe", growth: 72, volume: "78%", properties: 12 },
-    { name: "Premium Urban", growth: 88, volume: "95%", properties: 8 },
-    { name: "Countryside", growth: 65, volume: "70%", properties: 6 },
+    { name: "Deutschland", growth: 85, volume: "92%", properties: 4 },
+    { name: "Mitteleuropa", growth: 72, volume: "78%", properties: 12 },
+    { name: "Premium-Stadt", growth: 88, volume: "95%", properties: 8 },
+    { name: "Ländlich", growth: 65, volume: "70%", properties: 6 },
   ],
   trends: [
     { month: "Jan", value: 72 },
@@ -26,18 +26,18 @@ const marketData = {
   ],
   insights: [
     {
-      title: "Peak Season Demand",
-      description: "Summer months showing 35% higher booking rates as travelers seek premium luxury rental experiences.",
+      title: "Nachfrage in der Hochsaison",
+      description: "Die Sommermonate zeigen 35 % höhere Buchungsraten, da Reisende nach hochwertigen Luxusmiet-Erlebnissen suchen.",
       change: "+35%",
     },
     {
-      title: "City Center Premium",
-      description: "Urban center apartments commanding 28% higher nightly rates due to exceptional location and amenities.",
+      title: "Premium Innenstadt",
+      description: "Wohnungen im Stadtzentrum erzielen aufgrund ihrer außergewöhnlichen Lage und Ausstattung 28 % höhere Nachtpreise.",
       change: "+28%",
     },
     {
-      title: "Guest Satisfaction",
-      description: "Luxury apartments achieving 4.9/5 star ratings with 92% repeat booking rate year-over-year.",
+      title: "Gästezufriedenheit",
+      description: "Luxuswohnungen erreichen Bewertungen von 4,9/5 Sternen bei einer Wiederbuchungsrate von 92 % im Jahresvergleich.",
       change: "+92%",
     },
   ],
@@ -58,17 +58,17 @@ export function MarketSection() {
         <div className={`mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between ${isVisible ? "animate-slide-up" : "opacity-0"}`}>
           <div>
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              ( Booking Trends )
+              ( Buchungstrends )
             </p>
             <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-              Market
+              Markt
               <br />
-              Insights
+              Einblicke
             </h2>
           </div>
           <p className="max-w-md font-sans text-sm leading-relaxed text-muted-foreground md:text-base">
-            Current booking data and traveler insights from our luxury rental
-            portfolio, curated for the discerning guest.
+            Aktuelle Buchungsdaten und Reiseeinblicke aus unserem Portfolio an
+            Luxusmietobjekten, kuratiert für anspruchsvolle Gäste.
           </p>
         </div>
 
@@ -79,9 +79,9 @@ export function MarketSection() {
         >
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <h3 className="font-serif text-xl font-semibold text-foreground">Booking Occupancy Index</h3>
+              <h3 className="font-serif text-xl font-semibold text-foreground">Buchungs-Auslastungsindex</h3>
               <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                12-Month Occupancy Rate
+                12-Monats-Auslastungsrate
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -182,7 +182,7 @@ export function MarketSection() {
             className={`rounded-sm border border-border p-8 ${isVisible ? "animate-morph-in" : "opacity-0"}`}
             style={{ animationDelay: "400ms" }}
           >
-            <h3 className="mb-6 font-serif text-xl font-semibold text-foreground">Category Performance</h3>
+            <h3 className="mb-6 font-serif text-xl font-semibold text-foreground">Kategorieperformance</h3>
             <div className="flex flex-col gap-5">
               {marketData.regions.map((region) => (
                 <div key={region.name} className="group">
@@ -190,7 +190,7 @@ export function MarketSection() {
                     <div className="flex items-center gap-3">
                       <span className="font-sans text-sm text-foreground">{region.name}</span>
                       <span className="font-mono text-[10px] text-muted-foreground">
-                        {region.properties} listings
+                        {region.properties} Inserate
                       </span>
                     </div>
                     <div className="flex items-center gap-3">

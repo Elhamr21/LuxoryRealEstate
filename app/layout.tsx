@@ -24,9 +24,9 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Priem Residenz | Premium Rental Properties",
+  title: "Priem Residenz | Premium-Mietobjekte",
   description:
-    "Discover exceptional rental apartments and properties in Siegen, Kreuztal, and Wilnsdorf. Book your perfect stay with Priem Residenz.",
+    "Entdecken Sie außergewöhnliche Mietwohnungen und Unterkünfte in Siegen, Kreuztal und Wilnsdorf. Buchen Sie Ihren perfekten Aufenthalt mit Priem Residenz.",
 }
 
 export const viewport: Viewport = {

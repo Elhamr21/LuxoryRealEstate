@@ -28,16 +28,16 @@ export function Navigation() {
             Priem Residenz
           </span>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            Quality Rentals
+            Hochwertige Vermietungen
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-10 md:flex">
-          {["Collection", "Neighborhoods", "Market", "About"].map((item) => (
+          {["Kollektion", "Nachbarschaften", "Markt", "Über"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`#${item.toLowerCase().replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae').replace(/ß/g, 'ss')}`}
               className="group relative font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {item}
@@ -52,7 +52,7 @@ export function Navigation() {
             href="#contact"
             className="hidden rounded-sm bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90 md:inline-block"
           >
-            Book Now
+            Jetzt Buchen
           </a>
 
           {/* Mobile menu button */}
@@ -60,7 +60,7 @@ export function Navigation() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex flex-col gap-1.5 md:hidden"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
           >
             <span
               className={`block h-px w-6 bg-foreground transition-all duration-300 ${
@@ -83,7 +83,7 @@ export function Navigation() {
         }`}
       >
         <div className="flex flex-col gap-4 bg-background/95 px-6 pb-8 pt-2 backdrop-blur-md">
-          {["Collection", "Neighborhoods", "Market", "About"].map((item) => (
+          {["Kollektion", "Nachbarschaften", "Markt", "Über"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -98,7 +98,8 @@ export function Navigation() {
             onClick={() => setMenuOpen(false)}
             className="mt-2 rounded-sm bg-primary px-5 py-2.5 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground"
           >
-            Private Viewing
+            Jetzt Buchen
+            Private Besichtigung
           </a>
         </div>
       </div>

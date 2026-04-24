@@ -6,40 +6,40 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const neighborhoods = [
   {
-    name: "Siegen City",
-    country: "Germany",
+    name: "Siegen Stadt",
+    country: "Deutschland",
     image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
     properties: 2,
-    avgPrice: "€342/night",
-    description: "Experience the vibrant heart of Siegen with premium city center apartments offering modern luxury and exceptional access to local culture.",
-    highlights: ["City Center", "Modern Design", "Easy Access"],
+    avgPrice: "€342/Nacht",
+    description: "Erleben Sie das vibrierende Herz Siegens mit Premium Innenstadtapartments, die modernen Luxus und außergewöhnlichen Zugang zur lokalen Kultur bieten.",
+    highlights: ["Stadtzentrum", "Modernes Design", "Leichte Erreichbarkeit"],
   },
   {
-    name: "Siegen Suburbs",
-    country: "Germany",
+    name: "Siegen Vororte",
+    country: "Deutschland",
     image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
     properties: 1,
-    avgPrice: "€325/night",
-    description: "Charming suburban locations in Siegen offering tranquility with convenient access to amenities and the city center.",
-    highlights: ["Peaceful Setting", "Spacious", "Local Charm"],
+    avgPrice: "€325/Nacht",
+    description: "Charmante Vorortlagen in Siegen, die Ruhe mit praktischem Zugang zu Annehmlichkeiten und dem Stadtzentrum bieten.",
+    highlights: ["Ruhige Umgebung", "Geräumig", "Lokaler Charakter"],
   },
   {
     name: "Wilnsdorf",
-    country: "Germany",
+    country: "Deutschland",
     image: "/images/AirBNB/hero4.jpeg",
     properties: 1,
-    avgPrice: "€245/night",
-    description: "Escape to the countryside with luxury apartments nestled in picturesque Wilnsdorf, perfect for a serene retreat.",
-    highlights: ["Countryside", "Natural Beauty", "Peaceful"],
+    avgPrice: "€245/Nacht",
+    description: "Fliehen Sie aufs Land mit Luxusappartments in der malerischen Gegend von Wilnsdorf, perfekt für einen ruhigen Rückzug.",
+    highlights: ["Landgebiet", "Natürliche Schönheit", "Ruhig"],
   },
   {
     name: "Siegen Parkplatz",
-    country: "Germany",
+    country: "Deutschland",
     image: "/images/AirBNB/hero3.jpeg",
     properties: 1,
-    avgPrice: "€285/night",
-    description: "Modern apartments with convenient parking and highway access, ideal for business travelers and weekend getaways.",
-    highlights: ["Free WiFi", "Easy Parking", "Highway Access"],
+    avgPrice: "€285/Nacht",
+    description: "Moderne Apartments mit praktischem Parkplatz und Autobahnzugang, ideal für Geschäftsreisende und Wochenendausflüge.",
+    highlights: ["Kostenfreies WiFi", "Leichte Parkierung", "Autobahnzugang"],
   },
 ]
 
@@ -54,12 +54,12 @@ export function NeighborhoodsSection() {
         {/* Header */}
         <div className={`mb-16 ${isVisible ? "animate-slide-up" : "opacity-0"}`}>
           <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            ( Destinations )
+            ( Destinationen )
           </p>
           <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-            Rental
+            Vermietungs
             <br />
-            Locations
+            Standorte
           </h2>
         </div>
 
@@ -126,7 +126,7 @@ export function NeighborhoodsSection() {
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-[10px] text-muted-foreground">
-                      {n.properties} Rental{n.properties !== 1 ? "s" : ""}
+                      {n.properties} Vermietung{n.properties !== 1 ? "en" : ""}
                     </span>
                     <svg
                       className={`h-4 w-4 transition-all ${
@@ -153,7 +153,7 @@ export function NeighborhoodsSection() {
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Starting From
+                      Ab
                     </span>
                     <span className="font-serif text-2xl font-semibold text-foreground">
                       {neighborhood.avgPrice}
@@ -162,7 +162,7 @@ export function NeighborhoodsSection() {
                   <div className="h-10 w-px bg-border" />
                   <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Available
+                      Verfügbar
                     </span>
                     <span className="font-serif text-2xl font-semibold text-foreground">
                       {neighborhood.properties}
@@ -174,7 +174,7 @@ export function NeighborhoodsSection() {
                 href="#collection"
                 className="mt-8 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-accent transition-colors hover:text-foreground"
               >
-                View {neighborhood.name} Properties
+                {neighborhood.name} Unterkünfte ansehen
                 <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>

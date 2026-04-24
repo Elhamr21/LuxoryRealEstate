@@ -15,9 +15,9 @@ export function SiteFooter() {
         <div className="mb-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Collection
+              Kollektion
             </span>
-            {["Urban Apartments", "City Center", "Countryside", "Modern Design", "Premium Amenities", "Full Service"].map(
+            {["Stadtwohnungen", "Stadtzentrum", "Ländlich", "Modernes Design", "Premium-Ausstattung", "Rundum-Service"].map(
               (item) => (
                 <a
                   key={item}
@@ -32,9 +32,9 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Services
+              Dienstleistungen
             </span>
-            {["Book a Stay", "Group Bookings", "Extended Stays", "Guest Services", "Concierge", "Special Requests"].map(
+            {["Aufenthalt buchen", "Gruppenbuchungen", "Längere Aufenthalte", "Gästeservice", "Concierge", "Sonderwünsche"].map(
               (item) => (
                 <a
                   key={item}
@@ -49,15 +49,15 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Locations
+              Standorte
             </span>
             {[
-              "Siegen, Germany",
-              "Kreuztal, Germany",
-              "Wilnsdorf, Germany",
-              "Premium Properties",
-              "View All",
-              "Contact Us",
+              "Siegen, Deutschland",
+              "Kreuztal, Deutschland",
+              "Wilnsdorf, Deutschland",
+              "Premium-Unterkünfte",
+              "Alle ansehen",
+              "Kontakt",
             ].map((item) => (
               <span key={item} className="font-sans text-sm text-foreground/70">
                 {item}
@@ -67,7 +67,7 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Connect
+              Verbinden
             </span>
             {["Instagram", "LinkedIn", "WeChat", "Newsletter"].map((item) => (
               <a
@@ -89,11 +89,11 @@ export function SiteFooter() {
             </span>
             <span className="h-3 w-px bg-border" />
             <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
-              Privacy
+              Datenschutz
             </a>
             <span className="h-3 w-px bg-border" />
             <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
-              Terms
+              Bedingungen
             </a>
             <span className="h-3 w-px bg-border" />
             <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
@@ -101,7 +101,7 @@ export function SiteFooter() {
             </a>
           </div>
           <span className="font-mono text-[10px] text-muted-foreground">
-            Curated with precision. Built with purpose.
+            Mit Präzision kuratiert. Mit Sinn gestaltet.
           </span>
         </div>
       </div>

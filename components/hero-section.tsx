@@ -7,26 +7,26 @@ const heroSlides = [
   {
     image: "/images/AirBNB/hero1.jpeg",
     title: "Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn",
-    location: "Siegen City Center, Germany",
-    price: "€360/night",
+    location: "Siegen Stadtzentrum, Deutschland",
+    price: "€360/Nacht",
   },
   {
     image: "/images/AirBNB/hero2.jpeg",
     title: "Gesamte Unterkunft Apartment in Siegen, Deutschland",
-    location: "Siegen, Germany",
-    price: "€325/night",
+    location: "Siegen, Deutschland",
+    price: "€325/Nacht",
   },
   {
     image: "/images/AirBNB/hero3.jpeg",
-    title: "City Apartment in Siegen Parkplatz WLAN Autobahn",
-    location: "Siegen, Germany",
-    price: "€285/night",
+    title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
+    location: "Siegen, Deutschland",
+    price: "€285/Nacht",
   },
   {
     image: "/images/AirBNB/hero4.jpeg",
-    title: "City Apartment in Siegen Parkplatz wlan Autobahn",
-    location: "Siegen, Germany",
-    price: "€285/night",
+    title: "Stadtwohnung in Siegen Parkplatz WLAN Autobahn",
+    location: "Siegen, Deutschland",
+    price: "€285/Nacht",
   },
 ]
 
@@ -89,7 +89,7 @@ export function HeroSection() {
                   key={i}
                   className="mr-12 font-mono text-[10px] uppercase tracking-[0.3em] text-primary-foreground/50"
                 >
-                  Premium Rentals &nbsp;&middot;&nbsp; Comfortable Stays &nbsp;&middot;&nbsp; Local Expertise &nbsp;&middot;&nbsp; Quality Apartments &nbsp;&middot;&nbsp;
+                  Premium-Vermietungen &nbsp;&middot;&nbsp; Komfortable Unterkunft &nbsp;&middot;&nbsp; Lokale Expertise &nbsp;&middot;&nbsp; Qualitäts-Apartments &nbsp;&middot;&nbsp;
                 </span>
               ))}
             </div>
@@ -104,7 +104,7 @@ export function HeroSection() {
               }`}
             >
               <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
-                Featured Rental
+                Ausgewählte Unterkunft
               </p>
               <h1 className="font-serif text-5xl font-bold leading-tight text-primary-foreground md:text-7xl lg:text-8xl">
                 {slide.title}
@@ -126,7 +126,7 @@ export function HeroSection() {
                 className="group flex items-center gap-3 rounded-sm border border-primary-foreground/30 px-8 py-3 text-primary-foreground transition-all hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
                 <span className="font-mono text-xs uppercase tracking-[0.15em]">
-                  Explore Collection
+                  Kollektion Entdecken
                 </span>
                 <svg
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -161,7 +161,7 @@ export function HeroSection() {
                         ? "w-10 bg-primary-foreground"
                         : "w-5 bg-primary-foreground/30"
                     }`}
-                    aria-label={`View slide ${i + 1}`}
+                    aria-label={`Folie ${i + 1} anzeigen`}
                   />
                 ))}
                 <span className="ml-2 font-mono text-[10px] text-primary-foreground/40">
@@ -177,7 +177,7 @@ export function HeroSection() {
       <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
         <div className="flex flex-col items-center gap-2">
           <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-primary-foreground/40">
-            Scroll
+            Scrollen
           </span>
           <div className="h-8 w-px animate-pulse bg-primary-foreground/30" />
         </div>
