@@ -240,14 +240,26 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                     ))}
                   </div>
                   <div className="flex flex-col gap-3 pt-4">
-                    <a
-                      href={property.bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
-                    >
-                      Auf Booking ansehen
-                    </a>
+                    {property.bookingUrl && (
+                      <a
+                        href={property.bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-sm bg-accent px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-accent-foreground transition-all hover:bg-accent/90 font-semibold"
+                      >
+                        Auf Booking ansehen
+                      </a>
+                    )}
+                    {property.airbnbUrl && (
+                      <a
+                        href={property.airbnbUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-sm border border-border px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] text-foreground transition-all hover:border-foreground hover:bg-muted"
+                      >
+                        Auf Airbnb ansehen
+                      </a>
+                    )}
                     <a
                       href="https://wa.me/4901713739720?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
                       target="_blank"

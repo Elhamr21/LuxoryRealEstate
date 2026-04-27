@@ -24,8 +24,8 @@ const neighborhoods = [
   {
     name: "Wilnsdorf",
     country: "Deutschland",
-    image: "/images/AirBNB/hero4.jpeg",
-    properties: 1,
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland1.jpg",
+    properties: 2,
     description: "Fliehen Sie aufs Land mit Luxusappartments in der malerischen Gegend von Wilnsdorf, perfekt für einen ruhigen Rückzug.",
     highlights: ["Landgebiet", "Natürliche Schönheit", "Ruhig"],
   },

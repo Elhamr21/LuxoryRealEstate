@@ -24,7 +24,8 @@ export interface Property {
     restaurants: number
   }
   clientHistory: { year: number; clients: number }[]
-  bookingUrl: string
+  bookingUrl?: string
+  airbnbUrl?: string
 }
 
 export const properties: Property[] = [
@@ -66,6 +67,8 @@ export const properties: Property[] = [
       { year: 2025, clients: 285 },
     ],
     bookingUrl: "https://www.booking.com/Share-z8voFe",
+    airbnbUrl:
+      "https://www.airbnb.de/rooms/1457440790871964725?unique_share_id=a9c52918-826a-40d3-b6df-2fcf8696a24e&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280528_P3rgdlHD6lCIugcy",
   },
   {
     id: "siegen-deutschland",
@@ -105,6 +108,8 @@ export const properties: Property[] = [
       { year: 2025, clients: 325 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen.de.html?aid=898224&app_hotel_id=15041507&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-z8vV9Q%401776087521&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
+    airbnbUrl:
+      "https://www.airbnb.de/rooms/1523958220977060711?unique_share_id=90b2d58e-d1b8-4554-95a8-45091d04b954&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280708_P3LlQVtzoB2VIFpE",
   },
   {
     id: "wilnsdorf-unterkunft",
@@ -142,7 +147,50 @@ export const properties: Property[] = [
       { year: 2024, clients: 235 },
       { year: 2025, clients: 245 },
     ],
-    bookingUrl: "https://www.airbnb.de/rooms/1635504442875976412?unique_share_id=cffa133a-f21a-4409-8dbe-a77717b1947c&viralityEntryPoint=1&s=76&source_impression_id=p3_1777023541_P34xcS0XDbXiJeuk",
+    airbnbUrl:
+      "https://www.airbnb.de/rooms/1635504442875976412?unique_share_id=cffa133a-f21a-4409-8dbe-a77717b1947c&viralityEntryPoint=1&s=76&source_impression_id=p3_1777023541_P34xcS0XDbXiJeuk",
+  },
+  {
+    id: "wohnung-wilnsdorf-wilden",
+    title: "Wohnung in Siegen",
+    subtitle: "Stilvoll saniertes Apartment in Wilnsdorf-Wilden",
+    location: "Wilnsdorf, Deutschland",
+    price: "€210/Nacht",
+    priceValue: 210,
+    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
+    images: [
+      "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
+      "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland3.jpg",
+      "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland4.jpg",
+    ],
+    beds: 1,
+    baths: 1,
+    sqft: "620",
+    type: "country",
+    featured: false,
+    description:
+      "Diese stilvolle Unterkunft in Wilnsdorf-Wilden bietet ein frisch saniertes Apartment mit großem Doppelbett, moderner Küche und schönem Bad. Ideal für Paare oder Alleinreisende. Die ruhige Lage lädt zum Entspannen ein, dennoch sind Einkaufsmöglichkeiten schnell erreichbar. Kostenlose Parkmöglichkeiten und Gartenaufenthalt direkt am Haus machen den Aufenthalt noch bequemer. Perfekt für eine Auszeit mit Komfort und Charme.",
+    architect: "Goldene Zeiten",
+    yearBuilt: 2024,
+    features: [
+      "Eigenständiger Check-in",
+      "Haustiere willkommen",
+      "Großes Doppelbett",
+      "Moderne Küche",
+      "Kostenloses Parken",
+      "Gartenaufenthalt",
+    ],
+    coordinates: { lat: 50.812, lng: 8.118 },
+    neighborhood: { walkScore: 46, transitScore: 34, schools: 2, restaurants: 9 },
+    clientHistory: [
+      { year: 2021, clients: 0 },
+      { year: 2022, clients: 0 },
+      { year: 2023, clients: 0 },
+      { year: 2024, clients: 42 },
+      { year: 2025, clients: 58 },
+    ],
+    airbnbUrl:
+      "https://www.airbnb.de/rooms/1398679210941678170?unique_share_id=6d003ca1-7878-4cba-b9fd-53479e8b5e3f&viralityEntryPoint=1&s=76&source_impression_id=p3_1777281301_P3e7GkVoSRar-8iT",
   },
   {
     id: "siegen-zentrum",
@@ -182,6 +230,8 @@ export const properties: Property[] = [
       { year: 2025, clients: 360 },
     ],
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen-zentrum.de.html?aid=898224&app_hotel_id=15343910&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-L3jkr5U%401776087505&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
+    airbnbUrl:
+      "https://www.airbnb.de/rooms/1562904952481803589?unique_share_id=5ff4f763-aa01-4a54-9d09-2f135b1f7151&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280750_P3roew65P7uyZyxY",
   },
   {
     id: "moderne-wohnung-siegen",
