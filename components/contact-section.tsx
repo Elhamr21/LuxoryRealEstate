@@ -3,7 +3,15 @@
 import React from "react"
 
 import { useState } from "react"
+import { getAmplifyDataClient } from "@/lib/amplify-client"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+
+const interestOptions = [
+  "Eine Unterkunft buchen",
+  "Längeren Aufenthalt planen",
+  "Beratung zur Unterkunft",
+  "Private Besichtigung",
+]
 
 export function ContactSection() {
   const { ref, isVisible } = useScrollReveal(0.1)
@@ -16,10 +24,36 @@ export function ContactSection() {
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setSubmitError("")
+
+    try {
+      const client = await getAmplifyDataClient()
+      const response = await client.models.ContactInquiry.create({
+        firstName: formState.firstName.trim(),
+        lastName: formState.lastName.trim(),
+        email: formState.email.trim(),
+        phone: formState.phone.trim() || undefined,
+        interest: formState.interest || undefined,
+        message: formState.message.trim() || undefined,
+      })
+
+      if (response.errors?.length) {
+        throw new Error(response.errors.map((error) => error.message).join(" "))
+      }
+
+      setSubmitted(true)
+    } catch (error) {
+      console.error("Contact inquiry submission failed", error)
+      setSubmitError("Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -151,10 +185,11 @@ export function ContactSection() {
                     className="border-b border-primary-foreground/20 bg-transparent px-0 py-2 font-sans text-sm text-primary-foreground outline-none transition-colors focus:border-primary-foreground/60"
                   >
                     <option value="" className="text-foreground">Wählen Sie Ihr Interesse</option>
-                    <option value="buy" className="text-foreground">Eine Unterkunft buchen</option>
-                    <option value="sell" className="text-foreground">Längeren Aufenthalt planen</option>
-                    <option value="invest" className="text-foreground">Beratung zur Unterkunft</option>
-                    <option value="tour" className="text-foreground">Private Besichtigung</option>
+                    {interestOptions.map((option) => (
+                      <option key={option} value={option} className="text-foreground">
+                        {option}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -171,11 +206,18 @@ export function ContactSection() {
                   />
                 </div>
 
+                {submitError ? (
+                  <p className="font-sans text-sm leading-relaxed text-red-200" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
+
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="mt-2 rounded-sm bg-primary-foreground px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary-foreground/90"
                 >
-                  Anfrage senden
+                  {isSubmitting ? "Wird gesendet..." : "Anfrage senden"}
                 </button>
               </form>
             )}
