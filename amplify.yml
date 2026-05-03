@@ -12,7 +12,7 @@ backend:
         - corepack prepare pnpm@$PNPM_VERSION --activate
         - pnpm config set store-dir .pnpm-store
         - pnpm install --frozen-lockfile
-        - pnpm exec ampx pipeline-deploy --debug --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        - pnpm exec ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     preBuild:
