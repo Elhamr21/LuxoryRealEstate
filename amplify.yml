@@ -12,7 +12,7 @@ backend:
         - corepack prepare pnpm@$PNPM_VERSION --activate
         - pnpm config set store-dir .pnpm-store
         - pnpm install --frozen-lockfile
-        - pnpm exec ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        - pnpm exec ampx pipeline-deploy --debug --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     preBuild:
@@ -22,11 +22,8 @@ frontend:
         - corepack prepare pnpm@$PNPM_VERSION --activate
         - pnpm config set store-dir .pnpm-store
         - pnpm install --frozen-lockfile
-        - test -n "$NEXT_PUBLIC_GA_MEASUREMENT_ID" || (echo "NEXT_PUBLIC_GA_MEASUREMENT_ID is not set in Amplify environment variables" && exit 1)
         - printf 'NEXT_PUBLIC_GA_MEASUREMENT_ID=%s\n' "$NEXT_PUBLIC_GA_MEASUREMENT_ID" > .env.production
-        - test -z "$NEXT_PUBLIC_SITE_URL" || printf 'NEXT_PUBLIC_SITE_URL=%s\n' "$NEXT_PUBLIC_SITE_URL" >> .env.production
         - mkdir -p public
-        - test ! -f amplify_outputs.json || cp amplify_outputs.json public/amplify_outputs.json
     build:
       commands:
         - pnpm run build
