@@ -1,6 +1,6 @@
 import { defineBackend } from '@aws-amplify/backend'
-import { data } from './data/resource'
-import { contactEmailHandler } from './functions/contact-email/resource'
+import { data } from './data/resource.ts'
+import { contactEmailHandler } from './functions/contact-email/resource.ts'
 import { EventSourceMapping, StartingPosition } from 'aws-cdk-lib/aws-lambda'
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 
