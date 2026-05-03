@@ -11,8 +11,6 @@ backend:
         - corepack enable
         - corepack prepare pnpm@$PNPM_VERSION --activate
         - pnpm config set store-dir .pnpm-store
-        - rm -f package-lock.json npm-shrinkwrap.json yarn.lock
-        - test ! -d node_modules || test -d node_modules/.pnpm || rm -rf node_modules
         - pnpm install --frozen-lockfile
         - pnpm exec ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
@@ -23,8 +21,6 @@ frontend:
         - corepack enable
         - corepack prepare pnpm@$PNPM_VERSION --activate
         - pnpm config set store-dir .pnpm-store
-        - rm -f package-lock.json npm-shrinkwrap.json yarn.lock
-        - test ! -d node_modules || test -d node_modules/.pnpm || rm -rf node_modules
         - pnpm install --frozen-lockfile
         - test -n "$NEXT_PUBLIC_GA_MEASUREMENT_ID" || (echo "NEXT_PUBLIC_GA_MEASUREMENT_ID is not set in Amplify environment variables" && exit 1)
         - printf 'NEXT_PUBLIC_GA_MEASUREMENT_ID=%s\n' "$NEXT_PUBLIC_GA_MEASUREMENT_ID" > .env.production
