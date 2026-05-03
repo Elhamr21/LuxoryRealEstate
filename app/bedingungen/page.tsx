@@ -1,11 +1,27 @@
 import type { Metadata } from "next"
 
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page"
+import { absoluteUrl } from "@/lib/seo"
+
+const description =
+  "Bedingungen für die Nutzung der Prime Residenz Website und für Kontakt- und Buchungsanfragen."
 
 export const metadata: Metadata = {
-  title: "Bedingungen | Prime Residenz",
-  description:
-    "Bedingungen für die Nutzung der Prime Residenz Website und für Kontakt- und Buchungsanfragen.",
+  title: "Bedingungen",
+  description,
+  alternates: {
+    canonical: absoluteUrl("/bedingungen"),
+  },
+  openGraph: {
+    title: "Bedingungen | Prime Residenz",
+    description,
+    url: absoluteUrl("/bedingungen"),
+  },
+  twitter: {
+    card: "summary",
+    title: "Bedingungen | Prime Residenz",
+    description,
+  },
 }
 
 export default function BedingungenPage() {

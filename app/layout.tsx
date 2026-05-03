@@ -3,6 +3,15 @@ import type { Metadata, Viewport } from "next"
 import { DM_Sans, Playfair_Display, Space_Mono } from "next/font/google"
 
 import { CookieConsent } from "@/components/cookie-consent"
+import {
+  absoluteUrl,
+  defaultOgImage,
+  serializeJsonLd,
+  siteDescription,
+  siteName,
+  siteStructuredData,
+  siteUrl,
+} from "@/lib/seo"
 
 import "./globals.css"
 
@@ -26,9 +35,63 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Prime Residenz | Premium-Mietobjekte",
-  description:
-    "Entdecken Sie außergewöhnliche Mietwohnungen und Unterkünfte in Siegen, Kreuztal und Wilnsdorf. Buchen Sie Ihren perfekten Aufenthalt mit Prime Residenz.",
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  title: {
+    default: "Prime Residenz | Premium-Unterkünfte in Siegen, Kreuztal und Wilnsdorf",
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Prime Residenz",
+    "Ferienwohnung Siegen",
+    "Apartment Siegen",
+    "Unterkunft Kreuztal",
+    "Ferienhaus Kreuztal",
+    "Unterkunft Wilnsdorf",
+    "Kurzzeitvermietung Siegen",
+    "Monteurwohnung Siegen",
+  ],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    siteName,
+    url: absoluteUrl("/"),
+    title: "Prime Residenz | Premium-Unterkünfte in Siegen, Kreuztal und Wilnsdorf",
+    description: siteDescription,
+    images: [
+      {
+        url: absoluteUrl(defaultOgImage),
+        alt: "Premium-Unterkunft von Prime Residenz",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prime Residenz | Premium-Unterkünfte",
+    description: siteDescription,
+    images: [absoluteUrl(defaultOgImage)],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "travel",
 }
 
 export const viewport: Viewport = {
@@ -43,6 +106,10 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${dmSans.variable} ${playfair.variable} ${spaceMono.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteStructuredData()) }}
+        />
         {children}
         <CookieConsent />
       </body>

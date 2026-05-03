@@ -3,8 +3,6 @@ export interface Property {
   title: string
   subtitle: string
   location: string
-  price: string
-  priceValue: number
   image: string
   images?: string[]
   beds: number
@@ -34,8 +32,6 @@ export const properties: Property[] = [
     title: "Stadtwohnung in Siegen, Deutschland",
     subtitle: "Moderner urbaner Komfort mit nahtlosem Zugang",
     location: "Siegen, Deutschland",
-    price: "€285/Nacht",
-    priceValue: 285,
     image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
     images: [
       "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn3.avif",
@@ -75,8 +71,6 @@ export const properties: Property[] = [
     title: "Komplettes Apartment in Siegen, Deutschland",
     subtitle: "Luxuswohnen im Herzen von Siegen",
     location: "Siegen, Deutschland",
-    price: "€325/Nacht",
-    priceValue: 325,
     image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
     images: [
       "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
@@ -116,8 +110,6 @@ export const properties: Property[] = [
     title: "Neubauwohnung im Zentrum von Siegen",
     subtitle: "Charmanter Landausflug",
     location: "Wilnsdorf, Deutschland",
-    price: "€245/Nacht",
-    priceValue: 245,
     image: "/images/AirBNB/hero4.jpeg",
     images: [
       "/images/AirBNB/hero4.jpeg",
@@ -155,8 +147,6 @@ export const properties: Property[] = [
     title: "Wohnung in Siegen",
     subtitle: "Stilvoll saniertes Apartment in Wilnsdorf-Wilden",
     location: "Wilnsdorf, Deutschland",
-    price: "€210/Nacht",
-    priceValue: 210,
     image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
     images: [
       "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland2.avif",
@@ -197,8 +187,6 @@ export const properties: Property[] = [
     title: "Stadtwohnung in Siegen-Zentrum",
     subtitle: "Premium Innenstadtwohnen",
     location: "Siegen Innenstadt, Deutschland",
-    price: "€360/Nacht",
-    priceValue: 360,
     image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
     images: [
       "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn2.avif",
@@ -238,8 +226,6 @@ export const properties: Property[] = [
     title: "Moderne Wohnung in Siegen",
     subtitle: "Moderner Komfort mit Premium-Ausstattung",
     location: "Siegen, Deutschland",
-    price: "€275/Nacht",
-    priceValue: 275,
     image: "/images/AirBNB/ModerneWohnunginSiegenParkplatzWLAN.png",
     images: [
       "/images/AirBNB/ModerneWohnunginSiegenParkplatzWLAN.png",
@@ -277,8 +263,6 @@ export const properties: Property[] = [
     title: "Charmante Wohnung mit Terrasse in ruhiger Lage von Kreuztal-Zentrum",
     subtitle: "Ruhiger Rückzugsort mit Gartenblick",
     location: "Kreuztal, Deutschland",
-    price: "€225/Nacht",
-    priceValue: 225,
     image: "/images/AirBNB/CharmanteWohnungmitTerrasseinruhigerLagevonKreuztal-Zentrum.png",
     images: [
       "/images/AirBNB/CharmanteWohnungmitTerrasseinruhigerLagevonKreuztal-Zentrum.png",
@@ -316,8 +300,6 @@ export const properties: Property[] = [
     title: "Modernes Ferienhaus in ruhiger Lage in Kreuztal-Zentrum",
     subtitle: "Großzügiges Ferienhaus im Stadtzentrum",
     location: "Kreuztal, Deutschland",
-    price: "€310/Nacht",
-    priceValue: 310,
     image: "/images/AirBNB/ModernesFerienhausinruhigerLageinKreuztal-Zentrum.png",
     images: [
       "/images/AirBNB/ModernesFerienhausinruhigerLageinKreuztal-Zentrum.png",
@@ -355,8 +337,6 @@ export const properties: Property[] = [
     title: "Stadtwohnung mit Balkon in ruhiger Lage von Kreuztal-Zentrum",
     subtitle: "Stadtleben mit malerischem Balkon",
     location: "Kreuztal, Deutschland",
-    price: "€235/Nacht",
-    priceValue: 235,
     image: "/images/AirBNB/CityWohnungmitBalkoninruhigerLagevonKreuztal-Zentrum.png",
     images: [
       "/images/AirBNB/CityWohnungmitBalkoninruhigerLagevonKreuztal-Zentrum.png",
@@ -394,8 +374,6 @@ export const properties: Property[] = [
     title: "Großes Ferienhaus in Siegen-Kreuztal",
     subtitle: "Großzügiges Familienhaus mit mehreren Annehmlichkeiten",
     location: "Siegen-Kreuztal, Deutschland",
-    price: "€340/Nacht",
-    priceValue: 340,
     image: "/images/AirBNB/GroßesFerienhausinSiegen-KreuztalauchfürMonteure.png",
     images: [
       "/images/AirBNB/GroßesFerienhausinSiegen-KreuztalauchfürMonteure.png",

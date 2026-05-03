@@ -2,11 +2,27 @@ import type { Metadata } from "next"
 
 import { CookieSettingsButton } from "@/components/cookie-consent"
 import { LegalPage, LegalSection } from "@/components/legal-page"
+import { absoluteUrl } from "@/lib/seo"
+
+const description =
+  "Cookie-Hinweise und Einstellungen für Prime Residenz, einschließlich Google Analytics."
 
 export const metadata: Metadata = {
-  title: "Cookies | Prime Residenz",
-  description:
-    "Cookie-Hinweise und Einstellungen für Prime Residenz, einschließlich Google Analytics.",
+  title: "Cookies",
+  description,
+  alternates: {
+    canonical: absoluteUrl("/cookies"),
+  },
+  openGraph: {
+    title: "Cookies | Prime Residenz",
+    description,
+    url: absoluteUrl("/cookies"),
+  },
+  twitter: {
+    card: "summary",
+    title: "Cookies | Prime Residenz",
+    description,
+  },
 }
 
 export default function CookiesPage() {

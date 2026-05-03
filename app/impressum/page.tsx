@@ -1,11 +1,26 @@
 import type { Metadata } from "next"
 
 import { LegalPage, LegalSection } from "@/components/legal-page"
+import { absoluteUrl } from "@/lib/seo"
+
+const description = "Impressum und Anbieterkennzeichnung von Prime Residenz."
 
 export const metadata: Metadata = {
-  title: "Impressum | Prime Residenz",
-  description:
-    "Impressum und Anbieterkennzeichnung von Prime Residenz.",
+  title: "Impressum",
+  description,
+  alternates: {
+    canonical: absoluteUrl("/impressum"),
+  },
+  openGraph: {
+    title: "Impressum | Prime Residenz",
+    description,
+    url: absoluteUrl("/impressum"),
+  },
+  twitter: {
+    card: "summary",
+    title: "Impressum | Prime Residenz",
+    description,
+  },
 }
 
 export default function ImpressumPage() {

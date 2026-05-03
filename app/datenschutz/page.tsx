@@ -1,11 +1,27 @@
 import type { Metadata } from "next"
 
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page"
+import { absoluteUrl } from "@/lib/seo"
+
+const description =
+  "Datenschutzerklärung von Prime Residenz mit Informationen zu Kontaktanfragen, Cookies und Google Analytics."
 
 export const metadata: Metadata = {
-  title: "Datenschutz | Prime Residenz",
-  description:
-    "Datenschutzerklärung von Prime Residenz mit Informationen zu Kontaktanfragen, Cookies und Google Analytics.",
+  title: "Datenschutz",
+  description,
+  alternates: {
+    canonical: absoluteUrl("/datenschutz"),
+  },
+  openGraph: {
+    title: "Datenschutz | Prime Residenz",
+    description,
+    url: absoluteUrl("/datenschutz"),
+  },
+  twitter: {
+    card: "summary",
+    title: "Datenschutz | Prime Residenz",
+    description,
+  },
 }
 
 export default function DatenschutzPage() {

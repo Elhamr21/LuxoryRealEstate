@@ -3,16 +3,51 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { CollectionBrowser } from "@/components/collection-browser"
 import { SiteFooter } from "@/components/site-footer"
+import { properties } from "@/lib/properties"
+import {
+  absoluteUrl,
+  collectionStructuredData,
+  defaultOgImage,
+  serializeJsonLd,
+} from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Kollektion | Prime Residenz",
+  title: "Kollektion",
   description:
     "Entdecken Sie die gesamte Prime Residenz Kollektion mit hochwertigen Unterkünften in Siegen, Kreuztal und Wilnsdorf.",
+  alternates: {
+    canonical: absoluteUrl("/collection"),
+  },
+  openGraph: {
+    title: "Kollektion | Prime Residenz",
+    description:
+      "Alle Prime Residenz Unterkünfte in Siegen, Kreuztal und Wilnsdorf mit Ausstattung, Lage und Buchungsoptionen.",
+    url: absoluteUrl("/collection"),
+    images: [
+      {
+        url: absoluteUrl(defaultOgImage),
+        alt: "Prime Residenz Kollektion",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kollektion | Prime Residenz",
+    description:
+      "Alle Prime Residenz Unterkünfte in Siegen, Kreuztal und Wilnsdorf mit Ausstattung, Lage und Buchungsoptionen.",
+    images: [absoluteUrl(defaultOgImage)],
+  },
 }
 
 export default function CollectionPage() {
   return (
     <main className="bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(collectionStructuredData(properties)),
+        }}
+      />
       <Navigation />
       <section className="relative overflow-hidden bg-card px-6 pb-20 pt-36 lg:px-10 lg:pt-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(180,103,69,0.14),_transparent_38%),linear-gradient(135deg,_rgba(255,255,255,0.72),_rgba(249,246,241,0.96))]" />

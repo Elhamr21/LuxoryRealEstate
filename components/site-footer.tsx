@@ -3,6 +3,13 @@
 import Link from "next/link"
 
 export function SiteFooter() {
+  const contactLinks = [
+    { label: "E-Mail", href: "mailto:primeresidenz@web.de" },
+    { label: "+49 171 3739720", href: "tel:+491713739720" },
+    { label: "+49 271 3356715", href: "tel:+492713356715" },
+    { label: "WhatsApp", href: "https://wa.me/491713739720" },
+  ]
+
   return (
     <footer className="border-t border-border bg-background px-6 py-16 lg:px-10">
       <div className="mx-auto max-w-[1400px]">
@@ -57,9 +64,9 @@ export function SiteFooter() {
               "Siegen, Deutschland",
               "Kreuztal, Deutschland",
               "Wilnsdorf, Deutschland",
+              "Hochstr. 36, 57076 Siegen",
               "Premium-Unterkünfte",
               "Alle ansehen",
-              "Kontakt",
             ].map((item) => (
               <span key={item} className="font-sans text-sm text-foreground/70">
                 {item}
@@ -69,15 +76,15 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Verbinden
+              Kontakt
             </span>
-            {["Instagram", "LinkedIn", "WeChat", "Newsletter"].map((item) => (
+            {contactLinks.map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
                 className="font-sans text-sm text-foreground/70 transition-colors hover:text-foreground"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
