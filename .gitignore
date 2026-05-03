@@ -7,8 +7,11 @@ instrumentation-client.ts
 
 # Common ignores
 node_modules/
+.pnpm-store/
 .next/
 .env*.local
+.env.production
 .DS_Store
 amplify_outputs.json
 public/amplify_outputs.json
+.env

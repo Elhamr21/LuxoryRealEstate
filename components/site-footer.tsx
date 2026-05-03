@@ -90,17 +90,21 @@ export function SiteFooter() {
               &copy; 2026 Prime Residenz
             </span>
             <span className="h-3 w-px bg-border" />
-            <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
+            <Link href="/datenschutz" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
               Datenschutz
-            </a>
+            </Link>
             <span className="h-3 w-px bg-border" />
-            <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
+            <Link href="/bedingungen" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
               Bedingungen
-            </a>
+            </Link>
             <span className="h-3 w-px bg-border" />
-            <a href="#" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
+            <Link href="/cookies" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
               Cookies
-            </a>
+            </Link>
+            <span className="h-3 w-px bg-border" />
+            <Link href="/impressum" className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground">
+              Impressum
+            </Link>
           </div>
           <span className="font-mono text-[10px] text-muted-foreground">
             Mit Präzision kuratiert. Mit Sinn gestaltet.

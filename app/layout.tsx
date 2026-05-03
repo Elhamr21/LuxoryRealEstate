@@ -2,6 +2,8 @@ import React from "react"
 import type { Metadata, Viewport } from "next"
 import { DM_Sans, Playfair_Display, Space_Mono } from "next/font/google"
 
+import { CookieConsent } from "@/components/cookie-consent"
+
 import "./globals.css"
 
 const dmSans = DM_Sans({
@@ -39,8 +41,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${playfair.variable} ${spaceMono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="de" className={`${dmSans.variable} ${playfair.variable} ${spaceMono.variable}`}>
+      <body className="font-sans antialiased">
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   )
 }

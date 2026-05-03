@@ -1,27 +1,43 @@
 version: 1
+env:
+  variables:
+    NODE_VERSION: 22
+    PNPM_VERSION: 10.12.3
 backend:
   phases:
     build:
       commands:
-        - nvm use 20
-        - npm install --no-audit --no-fund
-        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        - nvm use $NODE_VERSION
+        - corepack enable
+        - corepack prepare pnpm@$PNPM_VERSION --activate
+        - pnpm config set store-dir .pnpm-store
+        - rm -f package-lock.json npm-shrinkwrap.json yarn.lock
+        - test ! -d node_modules || test -d node_modules/.pnpm || rm -rf node_modules
+        - pnpm install --frozen-lockfile
+        - pnpm exec ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     preBuild:
       commands:
-        - nvm use 20
-        - npm install --no-audit --no-fund
+        - nvm use $NODE_VERSION
+        - corepack enable
+        - corepack prepare pnpm@$PNPM_VERSION --activate
+        - pnpm config set store-dir .pnpm-store
+        - rm -f package-lock.json npm-shrinkwrap.json yarn.lock
+        - test ! -d node_modules || test -d node_modules/.pnpm || rm -rf node_modules
+        - pnpm install --frozen-lockfile
+        - test -n "$NEXT_PUBLIC_GA_MEASUREMENT_ID" || (echo "NEXT_PUBLIC_GA_MEASUREMENT_ID is not set in Amplify environment variables" && exit 1)
+        - printf 'NEXT_PUBLIC_GA_MEASUREMENT_ID=%s\n' "$NEXT_PUBLIC_GA_MEASUREMENT_ID" > .env.production
         - mkdir -p public
         - test ! -f amplify_outputs.json || cp amplify_outputs.json public/amplify_outputs.json
     build:
       commands:
-        - npm run build
+        - pnpm run build
   artifacts:
     baseDirectory: .next
     files:
       - "**/*"
   cache:
     paths:
-      - node_modules/**/*
-      - .next/cache/**/*
+      - .pnpm-store/**/*
+
