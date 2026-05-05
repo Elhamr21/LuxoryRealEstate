@@ -29,10 +29,10 @@ export interface Property {
 export const properties: Property[] = [
   {
     id: "siegen-parkplatz-wlan",
-    title: "Stadtwohnung in Siegen, Deutschland",
+    title: "City Wohnung in Siegen, Deutschland",
     subtitle: "Moderner urbaner Komfort mit nahtlosem Zugang",
     location: "Siegen, Deutschland",
-    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn1.jpg",
+    image: "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn3.avif",
     images: [
       "/images/AirBNB/City Apartment in Siegen Parkplatz WLAN Autobahn/City Apartment in Siegen Parkplatz WLAN Autobahn3.avif",
     ],

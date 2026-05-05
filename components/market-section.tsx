@@ -8,7 +8,7 @@ const marketData = {
     { name: "Deutschland", growth: 85, volume: "92%", properties: 4 },
     { name: "Mitteleuropa", growth: 72, volume: "78%", properties: 12 },
     { name: "Premium-Stadt", growth: 88, volume: "95%", properties: 8 },
-    { name: "Ländlich", growth: 65, volume: "70%", properties: 6 },
+    { name: "Stadtwohnung", growth: 65, volume: "70%", properties: 6 },
   ],
   trends: [
     { month: "Jan", value: 72 },

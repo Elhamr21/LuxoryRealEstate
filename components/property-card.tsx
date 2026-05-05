@@ -32,7 +32,7 @@ export function PropertyCard({ property, index, href }: PropertyCardProps) {
   const typeLabel = {
     oceanfront: "Am Wasser",
     urban: "Stadtwohnung",
-    country: "Ländlich",
+    country: "Stadtwohnung",
     mountain: "Berge",
     tropical: "Tropisch",
     historic: "Historisch",

@@ -26,7 +26,7 @@ export function SiteFooter() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               Kollektion
             </span>
-            {["Stadtwohnungen", "Stadtzentrum", "Ländlich", "Modernes Design", "Premium-Ausstattung", "Rundum-Service"].map(
+            {["Stadtwohnungen", "Stadtzentrum", "Modernes Design", "Premium-Ausstattung", "Rundum-Service"].map(
               (item) => (
                 <Link
                   key={item}
@@ -64,7 +64,6 @@ export function SiteFooter() {
               "Siegen, Deutschland",
               "Kreuztal, Deutschland",
               "Wilnsdorf, Deutschland",
-              "Hochstr. 36, 57076 Siegen",
               "Premium-Unterkünfte",
               "Alle ansehen",
             ].map((item) => (

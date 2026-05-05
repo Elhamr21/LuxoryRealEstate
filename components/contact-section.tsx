@@ -79,7 +79,7 @@ export function ContactSection() {
             <div className="flex flex-col gap-6">
               {[
                 { label: "Email", detail: "primeresidenz@web.de" },
-                { label: "Telefon", detail: "+49 01713739720" },
+                { label: "Telefon", detail: "+49 1713739720" },
                 { label: "Telefon", detail: "+49 271 3356715" },
               ].map((office) => (
                 <div key={office.label + office.detail} className="flex items-center gap-4">
