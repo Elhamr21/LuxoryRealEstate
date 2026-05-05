@@ -16,9 +16,6 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = property.images && property.images.length > 0 ? property.images : [property.image]
-  const maxClients = Math.max(...property.clientHistory.map((entry) => entry.clients))
-  const minClients = Math.min(...property.clientHistory.map((entry) => entry.clients))
-  const clientRange = maxClients - minClients
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
     requestAnimationFrame(() => setIsRevealed(true))
@@ -117,11 +114,10 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
       {/* Content */}
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
         {/* Quick Stats */}
-        <div className="mb-16 grid grid-cols-2 gap-6 border-b border-border pb-12 md:grid-cols-5">
+        <div className="mb-16 grid grid-cols-2 gap-6 border-b border-border pb-12 md:grid-cols-4">
           {[
             { label: "Schlafzimmer", value: String(property.beds) },
             { label: "Badezimmer", value: String(property.baths) },
-            { label: "Wohnfläche", value: `${property.sqft} Quadratfuß` },
             { label: "Verwaltung", value: property.architect },
             { label: "Verfügbar seit", value: String(property.yearBuilt) },
           ].map((stat) => (
@@ -195,30 +191,54 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
 
               <div className="grid gap-8 lg:grid-cols-[1.6fr_0.9fr]">
                 <div className="rounded-sm border border-border p-6">
-                  <div className="mb-6 flex items-end justify-between gap-6">
+                  <div className="mb-6">
                     <div>
-                      <h3 className="font-serif text-2xl font-semibold text-foreground">Kundenhistorie</h3>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-                        Jaehrliche Gaeste pro Unterkunft
+                      <h3 className="font-serif text-2xl font-semibold text-foreground">Gastbewertungen</h3>
+                      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                        Basierend auf {property.ratings.totalReviews} Bewertungen
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex h-64 items-end gap-3">
-                    {property.clientHistory.map((entry) => {
-                      const height = clientRange > 0 ? ((entry.clients - minClients) / clientRange) * 75 + 25 : 55
+                  <div className="flex flex-col gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-serif text-5xl font-bold text-accent">{property.ratings.overall.toFixed(1)}</span>
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <span
+                            key={i}
+                            className={`text-xl ${i < Math.floor(property.ratings.overall) ? 'text-accent' : 'text-muted-foreground'}`}
+                          >
+                            ★
+                          </span>
+                        ))}
+                      </div>
+                      <span className="font-mono text-[10px] text-muted-foreground">Gesamtbewertung</span>
+                    </div>
 
-                      return (
-                        <div key={entry.year} className="flex flex-1 flex-col items-center gap-3">
-                          <span className="font-mono text-[10px] text-muted-foreground">{entry.clients}</span>
-                          <div
-                            className="w-full rounded-t-sm bg-accent/80 transition-all duration-700 hover:bg-accent"
-                            style={{ height: `${height}%` }}
-                          />
-                          <span className="font-mono text-[10px] text-muted-foreground">{entry.year}</span>
+                    <div className="space-y-3">
+                      {[
+                        { label: 'Sauberkeit', value: property.ratings.cleanliness },
+                        { label: 'Standort', value: property.ratings.location },
+                        { label: 'Kommunikation', value: property.ratings.communication },
+                        { label: 'Preis-Leistung', value: property.ratings.value },
+                      ].map((item) => (
+                        <div key={item.label}>
+                          <div className="mb-1 flex items-center justify-between">
+                            <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground">
+                              {item.label}
+                            </span>
+                            <span className="font-mono text-xs font-semibold text-foreground">{item.value.toFixed(1)}</span>
+                          </div>
+                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                            <div
+                              className="h-full rounded-full bg-accent transition-all duration-500"
+                              style={{ width: `${(item.value / 5) * 100}%` }}
+                            />
+                          </div>
                         </div>
-                      )
-                    })}
+                      ))}
+                    </div>
                   </div>
                 </div>
 

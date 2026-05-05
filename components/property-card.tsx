@@ -129,10 +129,6 @@ export function PropertyCard({ property, index, href }: PropertyCardProps) {
             <span className="font-mono text-[11px] text-muted-foreground">
               {property.baths} Bäder
             </span>
-            <span className="h-3 w-px bg-border" />
-            <span className="font-mono text-[11px] text-muted-foreground">
-              {property.sqft} Quadratfuß
-            </span>
           </div>
         </div>
       </div>

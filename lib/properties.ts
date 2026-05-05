@@ -21,7 +21,14 @@ export interface Property {
     schools: number
     restaurants: number
   }
-  clientHistory: { year: number; clients: number }[]
+  ratings: {
+    overall: number
+    cleanliness: number
+    location: number
+    communication: number
+    value: number
+    totalReviews: number
+  }
   bookingUrl?: string
   airbnbUrl?: string
 }
@@ -44,7 +51,7 @@ export const properties: Property[] = [
     description:
       "Diese moderne Stadtwohnung verbindet Annehmlichkeiten mit praktischem Autobahnzugang. Perfekt für Geschäftsreisende und Freizeitgäste mit Premium-WiFi überall und dediziertem Parkplatz. Der offene Wohnbereich präsentiert modernes Design mit durchdachten Details.",
     architect: "Studio für modernes Design",
-    yearBuilt: 2018,
+    yearBuilt: 2025,
     features: [
       "Kostenloses WiFi",
       "Dedizierter Parkplatz",
@@ -55,13 +62,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8783, lng: 8.0316 },
     neighborhood: { walkScore: 65, transitScore: 55, schools: 3, restaurants: 18 },
-    clientHistory: [
-      { year: 2021, clients: 220 },
-      { year: 2022, clients: 240 },
-      { year: 2023, clients: 260 },
-      { year: 2024, clients: 275 },
-      { year: 2025, clients: 285 },
-    ],
+    ratings: {
+      overall: 4.8,
+      cleanliness: 4.9,
+      location: 4.7,
+      communication: 4.8,
+      value: 4.6,
+      totalReviews: 124,
+    },
     bookingUrl: "https://www.booking.com/Share-z8voFe",
     airbnbUrl:
       "https://www.airbnb.de/rooms/1457440790871964725?unique_share_id=a9c52918-826a-40d3-b6df-2fcf8696a24e&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280528_P3rgdlHD6lCIugcy",
@@ -83,7 +91,7 @@ export const properties: Property[] = [
     description:
       "Erlebe raffiniertes Wohnen in diesem großzügigen Luxusapartment im lebhaften Herzen Siegens. Makellos gestaltet mit hochwertigen Möbeln und modernen Annehmlichkeiten, bietet dieses komplette Apartment den perfekten Rückzugsort für Familien oder Gruppen, die authentische deutsche Gastfreundschaft mit Premium-Ausstattung suchen.",
     architect: "Zeitgenössisches Designstudio",
-    yearBuilt: 2019,
+    yearBuilt: 2025,
     features: [
       "Vollständige Küche",
       "Essbereich",
@@ -94,13 +102,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8771, lng: 8.0288 },
     neighborhood: { walkScore: 78, transitScore: 72, schools: 5, restaurants: 32 },
-    clientHistory: [
-      { year: 2021, clients: 245 },
-      { year: 2022, clients: 270 },
-      { year: 2023, clients: 295 },
-      { year: 2024, clients: 310 },
-      { year: 2025, clients: 325 },
-    ],
+    ratings: {
+      overall: 4.9,
+      cleanliness: 4.8,
+      location: 5.0,
+      communication: 4.9,
+      value: 4.7,
+      totalReviews: 156,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen.de.html?aid=898224&app_hotel_id=15041507&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-z8vV9Q%401776087521&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
     airbnbUrl:
       "https://www.airbnb.de/rooms/1523958220977060711?unique_share_id=90b2d58e-d1b8-4554-95a8-45091d04b954&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280708_P3LlQVtzoB2VIFpE",
@@ -121,7 +130,7 @@ export const properties: Property[] = [
     description:
       "Eingebettet in die malerische Wilnsdorfer Landschaft bietet dieses charmante Apartment einen ruhigen Rückzugsort umgeben von natürlicher Schönheit. Es verbindet rustikale Elemente mit modernem Komfort und ist die ideale Basis zum Erkunden der hügeligen Landschaften und gastfreundlichen Gemeinden der Region.",
     architect: "Spezialisten für ländliches Design",
-    yearBuilt: 2017,
+    yearBuilt: 2025,
     features: [
       "Landschaftsblick",
       "Gartenzugang",
@@ -132,13 +141,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.7542, lng: 8.2183 },
     neighborhood: { walkScore: 42, transitScore: 35, schools: 2, restaurants: 12 },
-    clientHistory: [
-      { year: 2021, clients: 180 },
-      { year: 2022, clients: 205 },
-      { year: 2023, clients: 220 },
-      { year: 2024, clients: 235 },
-      { year: 2025, clients: 245 },
-    ],
+    ratings: {
+      overall: 4.7,
+      cleanliness: 4.6,
+      location: 4.8,
+      communication: 4.7,
+      value: 4.9,
+      totalReviews: 98,
+    },
     airbnbUrl:
       "https://www.airbnb.de/rooms/1635504442875976412?unique_share_id=cffa133a-f21a-4409-8dbe-a77717b1947c&viralityEntryPoint=1&s=76&source_impression_id=p3_1777023541_P34xcS0XDbXiJeuk",
   },
@@ -161,7 +171,7 @@ export const properties: Property[] = [
     description:
       "Diese stilvolle Unterkunft in Wilnsdorf-Wilden bietet ein frisch saniertes Apartment mit großem Doppelbett, moderner Küche und schönem Bad. Ideal für Paare oder Alleinreisende. Die ruhige Lage lädt zum Entspannen ein, dennoch sind Einkaufsmöglichkeiten schnell erreichbar. Kostenlose Parkmöglichkeiten und Gartenaufenthalt direkt am Haus machen den Aufenthalt noch bequemer. Perfekt für eine Auszeit mit Komfort und Charme.",
     architect: "Goldene Zeiten",
-    yearBuilt: 2024,
+    yearBuilt: 2025,
     features: [
       "Eigenständiger Check-in",
       "Haustiere willkommen",
@@ -172,13 +182,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.812, lng: 8.118 },
     neighborhood: { walkScore: 46, transitScore: 34, schools: 2, restaurants: 9 },
-    clientHistory: [
-      { year: 2021, clients: 0 },
-      { year: 2022, clients: 0 },
-      { year: 2023, clients: 0 },
-      { year: 2024, clients: 42 },
-      { year: 2025, clients: 58 },
-    ],
+    ratings: {
+      overall: 4.6,
+      cleanliness: 4.7,
+      location: 4.5,
+      communication: 4.6,
+      value: 4.8,
+      totalReviews: 34,
+    },
     airbnbUrl:
       "https://www.airbnb.de/rooms/1398679210941678170?unique_share_id=6d003ca1-7878-4cba-b9fd-53479e8b5e3f&viralityEntryPoint=1&s=76&source_impression_id=p3_1777281301_P3e7GkVoSRar-8iT",
   },
@@ -199,7 +210,7 @@ export const properties: Property[] = [
     description:
       "Dieses prestigeträchtige Innenstadtapartment platziert dich im Herzen von Siegens lebendiger Kultur. Mit direktem Autobahnzugang und Premium-Ausstattung ist es das ultimative urbane Luxuserlebnis. Hohe Decken, natürliches Licht und Designer-Verkleidungen schaffen ein außergewöhnliches Umfeld für den anspruchsvollen Reisenden.",
     architect: "Urban Luxury Designs",
-    yearBuilt: 2020,
+    yearBuilt: 2025,
     features: [
       "Zentrale Lage",
       "Premium-Möbel",
@@ -210,13 +221,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8761, lng: 8.0263 },
     neighborhood: { walkScore: 89, transitScore: 85, schools: 8, restaurants: 52 },
-    clientHistory: [
-      { year: 2021, clients: 280 },
-      { year: 2022, clients: 310 },
-      { year: 2023, clients: 335 },
-      { year: 2024, clients: 350 },
-      { year: 2025, clients: 360 },
-    ],
+    ratings: {
+      overall: 4.9,
+      cleanliness: 4.9,
+      location: 5.0,
+      communication: 4.9,
+      value: 4.8,
+      totalReviews: 187,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/stadtwohnung-in-siegen-zentrum.de.html?aid=898224&app_hotel_id=15343910&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-L3jkr5U%401776087505&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
     airbnbUrl:
       "https://www.airbnb.de/rooms/1562904952481803589?unique_share_id=5ff4f763-aa01-4a54-9d09-2f135b1f7151&viralityEntryPoint=1&s=76&source_impression_id=p3_1777280750_P3roew65P7uyZyxY",
@@ -238,7 +250,7 @@ export const properties: Property[] = [
     description:
       "Entdecke modernen Komfort in dieser wunderschön eingerichteten Siegener Wohnung. Perfekt für Geschäftsreisende und Freizeitgäste mit kostenlosem WiFi, dediziertem Parkplatz und modernem Design überall. Der einfache Zugang zu Hauptautobahnen und lokalen Annehmlichkeiten macht dies zur idealen Wahl zum Erkunden der Region.",
     architect: "Prime Residenz",
-    yearBuilt: 2018,
+    yearBuilt: 2025,
     features: [
       "Kostenloses WiFi",
       "Dedizierter Parkplatz",
@@ -249,13 +261,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8783, lng: 8.0316 },
     neighborhood: { walkScore: 65, transitScore: 55, schools: 3, restaurants: 18 },
-    clientHistory: [
-      { year: 2021, clients: 220 },
-      { year: 2022, clients: 240 },
-      { year: 2023, clients: 260 },
-      { year: 2024, clients: 275 },
-      { year: 2025, clients: 275 },
-    ],
+    ratings: {
+      overall: 4.7,
+      cleanliness: 4.8,
+      location: 4.6,
+      communication: 4.7,
+      value: 4.7,
+      totalReviews: 112,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
@@ -275,7 +288,7 @@ export const properties: Property[] = [
     description:
       "Flucht in diese charmante Wohnung in der ruhigen Mitte von Kreuztal. Die großzügige Terrasse überblickt ruhige Umgebungen, perfekt für Morgenkaffee oder abendliche Entspannung. Vollständig ausgestattet mit modernen Annehmlichkeiten bei Bewahrung einer gemütlichen, traditionellen Atmosphäre. Ideal für Paare oder kleine Familien, die Ruhe suchen.",
     architect: "Prime Residenz",
-    yearBuilt: 2016,
+    yearBuilt: 2025,
     features: [
       "Private Terrasse",
       "Gartenblick",
@@ -286,13 +299,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 58, transitScore: 48, schools: 2, restaurants: 12 },
-    clientHistory: [
-      { year: 2021, clients: 180 },
-      { year: 2022, clients: 200 },
-      { year: 2023, clients: 215 },
-      { year: 2024, clients: 225 },
-      { year: 2025, clients: 225 },
-    ],
+    ratings: {
+      overall: 4.8,
+      cleanliness: 4.9,
+      location: 4.7,
+      communication: 4.8,
+      value: 4.7,
+      totalReviews: 89,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/moderne-wohnung-in-siegen.de.html?aid=898224&app_hotel_id=15183944&checkin=2026-05-12&checkout=2026-05-14&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-glkYr3I%401776087484&no_rooms=2&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C",
   },
   {
@@ -312,7 +326,7 @@ export const properties: Property[] = [
     description:
       "Dieses moderne Ferienhaus im Zentrum von Kreuztal bietet die perfekte Basis für deinen Aufenthalt. Mit drei geräumigen Schlafzimmern und modernen Annehmlichkeiten überall bietet es Familien und Gruppen komfortabel Platz. Die ruhige, aber praktische Lage platziert dich zu Fuß Entfernung zu lokalen Läden und Restaurants.",
     architect: "Prime Residenz",
-    yearBuilt: 2019,
+    yearBuilt: 2025,
     features: [
       "Drei Schlafzimmer",
       "Zwei Badezimmer",
@@ -323,13 +337,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 72, transitScore: 65, schools: 4, restaurants: 20 },
-    clientHistory: [
-      { year: 2021, clients: 260 },
-      { year: 2022, clients: 280 },
-      { year: 2023, clients: 295 },
-      { year: 2024, clients: 310 },
-      { year: 2025, clients: 310 },
-    ],
+    ratings: {
+      overall: 4.8,
+      cleanliness: 4.8,
+      location: 4.9,
+      communication: 4.8,
+      value: 4.7,
+      totalReviews: 142,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/wohnung-in-ruhiger-lage-von-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15608751&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Y1eNPV%401776873296&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
   {
@@ -349,7 +364,7 @@ export const properties: Property[] = [
     description:
       "Genießen Sie das Stadtleben in dieser attraktiven Wohnung mit schönem Balkon. Im ruhigen Zentrum von Kreuztal gelegen, verbindet dieses komfortable Zuhause modernes Design mit traditionellem Charme. Der Balkon bietet den perfekten Ort zum Entspannen nach der Erkundung der Gegend.",
     architect: "Prime Residenz",
-    yearBuilt: 2017,
+    yearBuilt: 2025,
     features: [
       "Großzügiger Balkon",
       "Moderne Küche",
@@ -360,13 +375,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.9033, lng: 7.9925 },
     neighborhood: { walkScore: 68, transitScore: 58, schools: 3, restaurants: 16 },
-    clientHistory: [
-      { year: 2021, clients: 190 },
-      { year: 2022, clients: 210 },
-      { year: 2023, clients: 225 },
-      { year: 2024, clients: 235 },
-      { year: 2025, clients: 235 },
-    ],
+    ratings: {
+      overall: 4.7,
+      cleanliness: 4.6,
+      location: 4.8,
+      communication: 4.7,
+      value: 4.8,
+      totalReviews: 76,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/idyllisches-ferienhaus-in-kreuztal-zentrum.de.html?aid=898224&app_hotel_id=15628008&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-Nmb6sX%401776873287&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
   {
@@ -386,7 +402,7 @@ export const properties: Property[] = [
     description:
       "Dieses großzügige Familienhaus eignet sich perfekt für Gruppen und Arbeitsteams. Mit vier Schlafzimmern und mehreren Badezimmern gibt es reichlich Platz für alle. Ideal für längere Aufenthalte mit komfortablem häuslichem Umfeld mit allen modernen Annehmlichkeiten. Großartig für Familien, Freunde oder professionelle Teams.",
     architect: "Prime Residenz",
-    yearBuilt: 2018,
+    yearBuilt: 2025,
     features: [
       "Vier Schlafzimmer",
       "Zwei Badezimmer",
@@ -397,13 +413,14 @@ export const properties: Property[] = [
     ],
     coordinates: { lat: 50.8900, lng: 8.0100 },
     neighborhood: { walkScore: 55, transitScore: 50, schools: 3, restaurants: 14 },
-    clientHistory: [
-      { year: 2021, clients: 280 },
-      { year: 2022, clients: 300 },
-      { year: 2023, clients: 320 },
-      { year: 2024, clients: 335 },
-      { year: 2025, clients: 340 },
-    ],
+    ratings: {
+      overall: 4.9,
+      cleanliness: 4.9,
+      location: 4.8,
+      communication: 4.9,
+      value: 4.7,
+      totalReviews: 168,
+    },
     bookingUrl: "https://www.booking.com/hotel/de/waldlicht-apartments-in-siegen-kreuztal.de.html?aid=898224&app_hotel_id=15161302&checkin=2026-06-15&checkout=2026-06-18&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-6Gf5BI%401776873303&no_rooms=2&req_adults=2&req_children=0&room1=A%2CA%2C",
   },
 ]
