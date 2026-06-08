@@ -116,6 +116,18 @@ export function SiteFooter() {
             Mit Präzision kuratiert. Mit Sinn gestaltet.
           </span>
         </div>
+
+        {/* Powered By */}
+        <div className="mt-6 flex justify-center">
+          <a
+            href="https://clearline-ai.tech/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Powered By ClearLineTech
+          </a>
+        </div>
       </div>
     </footer>
   )
