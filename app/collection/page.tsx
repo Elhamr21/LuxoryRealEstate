@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { CollectionBrowser } from "@/components/collection-browser"
 import { SiteFooter } from "@/components/site-footer"
+import { cities, cityPath } from "@/lib/locations"
 import { properties } from "@/lib/properties"
 import {
   absoluteUrl,
@@ -12,9 +13,9 @@ import {
 } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Kollektion",
+  title: "Alle Ferienwohnungen & Apartments in Siegen, Kreuztal und Wilnsdorf",
   description:
-    "Entdecken Sie die gesamte Prime Residenz Kollektion mit hochwertigen Unterkünften in Siegen, Kreuztal und Wilnsdorf.",
+    "Alle Ferienwohnungen, Apartments und Ferienhäuser von Prime Residenz in Siegen, Kreuztal und Wilnsdorf – mit Ausstattung, Lage und direkten Buchungslinks zu Booking.com und Airbnb.",
   alternates: {
     canonical: absoluteUrl("/collection"),
   },
@@ -26,6 +27,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: absoluteUrl(defaultOgImage),
+        width: 1200,
+        height: 630,
         alt: "Prime Residenz Kollektion",
       },
     ],
@@ -77,13 +80,14 @@ export default function CollectionPage() {
                 Jede Immobilie führt direkt zu einer eigenen Detailseite mit Ausstattung, Lage und Buchungsoptionen.
               </p>
               <div className="flex flex-wrap gap-3">
-                {["Siegen", "Kreuztal", "Wilnsdorf", "Kurzzeitvermietung"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-sm border border-border bg-background/80 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground"
+                {cities.map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={cityPath(city.slug)}
+                    className="rounded-sm border border-border bg-background/80 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-foreground"
                   >
-                    {tag}
-                  </span>
+                    Ferienwohnung {city.name}
+                  </Link>
                 ))}
               </div>
             </div>

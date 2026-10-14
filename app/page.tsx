@@ -8,9 +8,13 @@ import { MarketSection } from "@/components/market-section"
 import { AboutSection } from "@/components/about-section"
 import { ContactSection } from "@/components/contact-section"
 import { SiteFooter } from "@/components/site-footer"
+import { FaqSection } from "@/components/faq-section"
+import { homeFaqs } from "@/lib/faq"
 import {
   absoluteUrl,
   defaultOgImage,
+  defaultOgImageAlt,
+  faqStructuredData,
   homeStructuredData,
   serializeJsonLd,
   siteDescription,
@@ -29,7 +33,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: absoluteUrl(defaultOgImage),
-        alt: "Premium-Unterkunft von Prime Residenz",
+        width: 1200,
+        height: 630,
+        alt: defaultOgImageAlt,
       },
     ],
   },
@@ -42,11 +48,17 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const faqs = homeFaqs()
+
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeStructuredData()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqStructuredData(faqs, absoluteUrl("/"))) }}
       />
       <Navigation />
       <HeroSection />
@@ -54,6 +66,7 @@ export default function Page() {
       <NeighborhoodsSection />
       <MarketSection />
       <AboutSection />
+      <FaqSection faqs={faqs} />
       <ContactSection />
       <SiteFooter />
     </main>

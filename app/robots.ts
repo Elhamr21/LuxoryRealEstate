@@ -1,14 +1,34 @@
 import type { MetadataRoute } from "next"
 
-import { absoluteUrl, siteUrl } from "@/lib/seo"
+import { absoluteUrl } from "@/lib/seo"
+
+// AI search and answer engines that are explicitly welcome to read the site.
+const aiCrawlers = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "Bingbot",
+]
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+      {
+        userAgent: aiCrawlers,
+        allow: "/",
+      },
+    ],
     sitemap: absoluteUrl("/sitemap.xml"),
-    host: siteUrl,
   }
 }

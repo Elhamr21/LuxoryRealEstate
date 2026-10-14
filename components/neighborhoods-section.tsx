@@ -2,42 +2,19 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { cities, cityPath, getPropertiesByCity } from "@/lib/locations"
 
-const neighborhoods = [
-  {
-    name: "Siegen Stadt",
-    country: "Deutschland",
-    image: "/images/AirBNB/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn/Stadtwohnung in Siegen-Zentrum Parkplatz Autobahn1.png",
-    properties: 2,
-    description: "Erleben Sie das vibrierende Herz Siegens mit Premium Innenstadtapartments, die modernen Luxus und außergewöhnlichen Zugang zur lokalen Kultur bieten.",
-    highlights: ["Stadtzentrum", "Modernes Design", "Leichte Erreichbarkeit"],
-  },
-  {
-    name: "Siegen Vororte",
-    country: "Deutschland",
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Siegen, Deutschland/Gesamte Unterkunft Apartment in Siegen, Deutschland1.png",
-    properties: 1,
-    description: "Charmante Vorortlagen in Siegen, die Ruhe mit praktischem Zugang zu Annehmlichkeiten und dem Stadtzentrum bieten.",
-    highlights: ["Ruhige Umgebung", "Geräumig", "Lokaler Charakter"],
-  },
-  {
-    name: "Wilnsdorf",
-    country: "Deutschland",
-    image: "/images/AirBNB/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland/Gesamte Unterkunft Apartment in Wilnsdorf, Deutschland1.jpg",
-    properties: 2,
-    description: "Fliehen Sie aufs Land mit Luxusappartments in der malerischen Gegend von Wilnsdorf, perfekt für einen ruhigen Rückzug.",
-    highlights: ["Landgebiet", "Natürliche Schönheit", "Ruhig"],
-  },
-  {
-    name: "Siegen Parkplatz",
-    country: "Deutschland",
-    image: "/images/AirBNB/hero3.jpeg",
-    properties: 1,
-    description: "Moderne Apartments mit praktischem Parkplatz und Autobahnzugang, ideal für Geschäftsreisende und Wochenendausflüge.",
-    highlights: ["Kostenfreies WiFi", "Leichte Parkierung", "Autobahnzugang"],
-  },
-]
+const neighborhoods = cities.map((city) => ({
+  slug: city.slug,
+  name: city.name,
+  country: "Deutschland",
+  image: city.image,
+  properties: getPropertiesByCity(city.slug).length,
+  description: city.intro,
+  highlights: city.highlights,
+}))
 
 export function NeighborhoodsSection() {
   const [activeNeighborhood, setActiveNeighborhood] = useState(0)
@@ -73,7 +50,7 @@ export function NeighborhoodsSection() {
               >
                 <Image
                   src={n.image || "/placeholder.svg"}
-                  alt={n.name}
+                  alt={`Ferienwohnung in ${n.name}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -155,15 +132,15 @@ export function NeighborhoodsSection() {
                   </span>
                 </div>
               </div>
-              <a
-                href="/collection"
+              <Link
+                href={cityPath(neighborhood.slug)}
                 className="mt-8 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-accent transition-colors hover:text-foreground"
               >
-                {neighborhood.name} Unterkünfte ansehen
+                Ferienwohnungen in {neighborhood.name} ansehen
                 <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -12,9 +12,10 @@ export function Navigation() {
 
   const navigationItems = [
     { label: "Kollektion", href: "/collection" },
-    { label: "Nachbarschaften", href: isHomePage ? "#neighborhoods" : "/#neighborhoods" },
+    { label: "Standorte", href: isHomePage ? "#neighborhoods" : "/#neighborhoods" },
     { label: "Markt", href: isHomePage ? "#market" : "/#market" },
     { label: "Über", href: isHomePage ? "#about" : "/#about" },
+    { label: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
   ]
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
+      <nav aria-label="Hauptnavigation" className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         {/* Logo */}
         <Link href="/#top" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold tracking-tight text-foreground">
@@ -109,7 +110,6 @@ export function Navigation() {
             className="mt-2 rounded-sm bg-primary px-5 py-2.5 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground"
           >
             Jetzt Buchen
-            Private Besichtigung
           </a>
         </div>
       </div>

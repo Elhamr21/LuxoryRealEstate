@@ -6,6 +6,7 @@ import { CookieConsent } from "@/components/cookie-consent"
 import {
   absoluteUrl,
   defaultOgImage,
+  defaultOgImageAlt,
   serializeJsonLd,
   siteDescription,
   siteName,
@@ -51,6 +52,10 @@ export const metadata: Metadata = {
     "Unterkunft Wilnsdorf",
     "Kurzzeitvermietung Siegen",
     "Monteurwohnung Siegen",
+    "Monteurwohnung Kreuztal",
+    "Ferienwohnung Wilnsdorf",
+    "Apartment auf Zeit Siegen",
+    "Ferienwohnung Siegerland",
   ],
   authors: [{ name: siteName }],
   creator: siteName,
@@ -70,7 +75,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: absoluteUrl(defaultOgImage),
-        alt: "Premium-Unterkunft von Prime Residenz",
+        width: 1200,
+        height: 630,
+        alt: defaultOgImageAlt,
       },
     ],
   },

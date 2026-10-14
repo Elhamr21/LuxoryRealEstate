@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { properties, type Property } from "@/lib/properties"
 import { PropertyCard } from "@/components/property-card"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { cities } from "@/lib/locations"
 
 const filters = ["Alle", "Städtisch", "Vororte", "Luxus", "Modern", "Charmant", "Gartenblick"] as const
 
@@ -43,8 +44,11 @@ export function CollectionBrowser({
 
   const stats = [
     { label: "Mietungen", value: String(properties.length) },
-    { label: "Standorte", value: "3" },
-    { label: "Durchschn. Bewertung", value: "4.9★" },
+    { label: "Standorte", value: String(cities.length) },
+    {
+      label: "Durchschn. Bewertung",
+      value: `${(properties.reduce((sum, p) => sum + p.ratings.overall, 0) / properties.length).toFixed(1)}★`,
+    },
     { label: "Verfügbarkeit", value: "Ganzjährig" },
   ]
 
@@ -97,6 +101,7 @@ export function CollectionBrowser({
             <button
               key={filter}
               type="button"
+              aria-pressed={activeFilter === filter}
               onClick={() => setActiveFilter(filter)}
               className={`rounded-sm border px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] transition-all ${
                 activeFilter === filter

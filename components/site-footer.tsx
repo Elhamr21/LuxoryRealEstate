@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { cities, cityPath } from "@/lib/locations"
 
 export function SiteFooter() {
   const contactLinks = [
@@ -60,17 +61,21 @@ export function SiteFooter() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               Standorte
             </span>
-            {[
-              "Siegen, Deutschland",
-              "Kreuztal, Deutschland",
-              "Wilnsdorf, Deutschland",
-              "Premium-Unterkünfte",
-              "Alle ansehen",
-            ].map((item) => (
-              <span key={item} className="font-sans text-sm text-foreground/70">
-                {item}
-              </span>
+            {cities.map((city) => (
+              <Link
+                key={city.slug}
+                href={cityPath(city.slug)}
+                className="font-sans text-sm text-foreground/70 transition-colors hover:text-foreground"
+              >
+                Ferienwohnungen {city.name}
+              </Link>
             ))}
+            <Link
+              href="/collection"
+              className="font-sans text-sm text-foreground/70 transition-colors hover:text-foreground"
+            >
+              Alle Unterkünfte ansehen
+            </Link>
           </div>
 
           <div className="flex flex-col gap-3">
@@ -86,6 +91,11 @@ export function SiteFooter() {
                 {item.label}
               </a>
             ))}
+            <address className="mt-2 font-sans text-sm not-italic leading-relaxed text-foreground/70">
+              Prime Residenz
+              <br />
+              Hochstr. 36, 57076 Siegen
+            </address>
           </div>
         </div>
 

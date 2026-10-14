@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { cities, citySlugForProperty, cityPath, getPropertiesByCity } from "@/lib/locations"
 import type { Property } from "@/lib/properties"
 
 interface PropertyDetailProps {
@@ -11,15 +12,29 @@ interface PropertyDetailProps {
 }
 
 export function PropertyDetail({ property, backHref = "/collection" }: PropertyDetailProps) {
-  const [isRevealed, setIsRevealed] = useState(false)
   const [activeTab, setActiveTab] = useState<"Übersicht" | "Ausstattung">("Übersicht")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = property.images && property.images.length > 0 ? property.images : [property.image]
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-    requestAnimationFrame(() => setIsRevealed(true))
-  }, [])
+  const citySlug = citySlugForProperty(property)
+  const city = cities.find((item) => item.slug === citySlug)!
+  const relatedProperties = getPropertiesByCity(citySlug).filter((item) => item.id !== property.id)
+  const featureText = property.features.join(" ")
+  const facts = [
+    { label: "Ort", value: property.location.replace(", Deutschland", "") },
+    { label: "Unterkunftsart", value: property.title.toLowerCase().includes("ferienhaus") ? "Ferienhaus" : "Ferienwohnung" },
+    { label: "Schlafzimmer", value: String(property.beds) },
+    { label: "Badezimmer", value: String(property.baths) },
+    { label: "Parken", value: /parkplatz|parken|tiefgarage/i.test(featureText) ? "Ja" : "Auf Anfrage" },
+    { label: "WLAN", value: /wifi|wlan/i.test(featureText) ? "Ja" : "Auf Anfrage" },
+    { label: "Mindestaufenthalt", value: "1 Nacht" },
+    {
+      label: "Buchung",
+      value: [property.bookingUrl && "Booking.com", property.airbnbUrl && "Airbnb", "WhatsApp", "E-Mail"]
+        .filter(Boolean)
+        .join(", "),
+    },
+  ]
 
   const goToNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length)
@@ -30,17 +45,12 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
   }
 
   return (
-    <section
-      id="collection"
-      className={`min-h-screen bg-background transition-all duration-700 ${
-        isRevealed ? "opacity-100" : "opacity-0 scale-[0.98]"
-      }`}
-    >
+    <article id="collection" className="min-h-screen bg-background">
       {/* Hero with Image Gallery */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <Image
           src={images[currentImageIndex] || "/placeholder.svg"}
-          alt={property.title}
+          alt={`${property.title} – Bild ${currentImageIndex + 1} von ${images.length}`}
           fill
           className="object-cover transition-opacity duration-500"
           priority
@@ -113,29 +123,37 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
 
       {/* Content */}
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-        {/* Quick Stats */}
-        <div className="mb-16 grid grid-cols-2 gap-6 border-b border-border pb-12 md:grid-cols-4">
-          {[
-            { label: "Schlafzimmer", value: String(property.beds) },
-            { label: "Badezimmer", value: String(property.baths) },
-            { label: "Verwaltung", value: property.architect },
-            { label: "Verfügbar seit", value: String(property.yearBuilt) },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                {stat.label}
-              </span>
-              <span className="font-serif text-xl font-semibold text-foreground">{stat.value}</span>
-            </div>
-          ))}
-        </div>
+        {/* Quick facts */}
+        <section aria-labelledby="facts-heading" className="mb-16 border-b border-border pb-12">
+          <h2 id="facts-heading" className="mb-3 font-serif text-2xl font-semibold text-foreground">
+            Auf einen Blick
+          </h2>
+          <p className="mb-8 max-w-3xl font-sans text-base leading-relaxed text-muted-foreground">
+            {property.title} ist {facts[1].value === "Ferienhaus" ? "ein Ferienhaus" : "eine Ferienwohnung"} in{" "}
+            {facts[0].value} mit {property.beds}{" "}
+            Schlafzimmer{property.beds !== 1 ? "n" : ""} und {property.baths} Badezimmer{property.baths !== 1 ? "n" : ""}.
+            Ausstattung unter anderem: {property.features.slice(0, 4).join(", ")}.
+          </p>
+          <dl className="grid grid-cols-2 gap-6 md:grid-cols-4">
+            {facts.map((fact) => (
+              <div key={fact.label} className="flex flex-col gap-1">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{fact.label}</dt>
+                <dd className="font-serif text-xl font-semibold text-foreground">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
         {/* Tabs */}
-        <div className="mb-10 flex gap-1 border-b border-border">
+        <div role="tablist" aria-label="Unterkunftsdetails" className="mb-10 flex gap-1 border-b border-border">
           {(["Übersicht", "Ausstattung"] as const).map((tab) => (
             <button
               key={tab}
               type="button"
+              role="tab"
+              id={`tab-${tab}`}
+              aria-selected={activeTab === tab}
+              aria-controls={`panel-${tab}`}
               onClick={() => setActiveTab(tab)}
               className={`border-b-2 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.15em] transition-all ${
                 activeTab === tab
@@ -150,11 +168,17 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
 
         {/* Tab Content */}
         <div className="animate-fade-in">
-          {activeTab === "Übersicht" && (
-            <div className="flex flex-col gap-12">
+          {/* Both panels stay in the HTML so search engines and AI crawlers can read them */}
+          <div
+            role="tabpanel"
+            id="panel-Übersicht"
+            aria-labelledby="tab-Übersicht"
+            hidden={activeTab !== "Übersicht"}
+            className="flex flex-col gap-12"
+          >
               <div className="grid gap-12 lg:grid-cols-2">
                 <div>
-                  <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Über diese Unterkunft</h3>
+                  <h2 className="mb-6 font-serif text-2xl font-semibold text-foreground">Über diese Unterkunft</h2>
                   <p className="font-sans text-base leading-relaxed text-muted-foreground">{property.description}</p>
                   <div className="mt-8 flex flex-col gap-3">
                     <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Verwaltet von</p>
@@ -162,7 +186,7 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                   </div>
                 </div>
                 <div className="flex flex-col gap-6">
-                  <h3 className="font-serif text-2xl font-semibold text-foreground">Umgebung</h3>
+                  <h2 className="font-serif text-2xl font-semibold text-foreground">Umgebung</h2>
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       { label: "Laufscore", value: property.neighborhood.walkScore, max: 100 },
@@ -193,7 +217,7 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                 <div className="rounded-sm border border-border p-6">
                   <div className="mb-6">
                     <div>
-                      <h3 className="font-serif text-2xl font-semibold text-foreground">Gastbewertungen</h3>
+                      <h2 className="font-serif text-2xl font-semibold text-foreground">Gastbewertungen</h2>
                       <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
                         Basierend auf {property.ratings.totalReviews} Bewertungen
                       </p>
@@ -243,7 +267,7 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                 </div>
 
                 <div className="rounded-sm border border-border p-6">
-                  <h3 className="mb-6 font-serif text-2xl font-semibold text-foreground">Buchungsdetails</h3>
+                  <h2 className="mb-6 font-serif text-2xl font-semibold text-foreground">Buchungsdetails</h2>
                   <div className="flex flex-col gap-4">
                     {[
                       {
@@ -281,7 +305,7 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                       </a>
                     )}
                     <a
-                      href="https://wa.me/4901713739720?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Buchung"
+                      href={`https://wa.me/491713739720?text=${encodeURIComponent(`Hallo, ich interessiere mich für die Buchung: ${property.title}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-sm bg-primary px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-all hover:bg-primary/90"
@@ -291,13 +315,18 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+          </div>
 
-          {activeTab === "Ausstattung" && (
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            role="tabpanel"
+            id="panel-Ausstattung"
+            aria-labelledby="tab-Ausstattung"
+            hidden={activeTab !== "Ausstattung"}
+          >
+            <h2 className="sr-only">Ausstattung</h2>
+            <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {property.features.map((feature) => (
-                <div
+                <li
                   key={feature}
                   className="group flex items-center gap-4 rounded-sm border border-border p-5 transition-all hover:border-accent hover:bg-accent/5"
                 >
@@ -307,12 +336,42 @@ export function PropertyDetail({ property, backHref = "/collection" }: PropertyD
                     </svg>
                   </div>
                   <span className="font-sans text-sm text-foreground">{feature}</span>
-                </div>
+                </li>
               ))}
-            </div>
-          )}
+            </ul>
+          </div>
         </div>
+
+        {/* Internal links: location page and nearby properties */}
+        <nav aria-labelledby="related-heading" className="mt-20 border-t border-border pt-12">
+          <h2 id="related-heading" className="mb-6 font-serif text-2xl font-semibold text-foreground">
+            Weitere Unterkünfte in {city.name}
+          </h2>
+          <ul className="flex flex-col gap-3">
+            {relatedProperties.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={`/collection/${item.id}`}
+                  className="font-sans text-base text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                >
+                  {item.title}
+                </Link>
+                <span className="ml-2 font-mono text-[11px] text-muted-foreground">
+                  {item.beds} Schlafzimmer · {item.baths} Bad
+                </span>
+              </li>
+            ))}
+            <li>
+              <Link
+                href={cityPath(citySlug)}
+                className="font-mono text-xs uppercase tracking-[0.15em] text-accent transition-colors hover:text-foreground"
+              >
+                Alle Ferienwohnungen in {city.name} ansehen →
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </section>
+    </article>
   )
 }

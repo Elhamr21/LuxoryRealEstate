@@ -1,10 +1,16 @@
-import type { Property } from "@/lib/properties"
+import type { FaqItem } from "@/lib/faq"
+import { cityPath, type CityLocation } from "@/lib/locations"
+import { properties, type Property } from "@/lib/properties"
 
 export const siteName = "Prime Residenz"
 export const siteDescription =
   "Premium-Unterkünfte, Ferienwohnungen und Apartments in Siegen, Kreuztal und Wilnsdorf für Kurztrips, Geschäftsreisen und längere Aufenthalte."
 
-export const defaultOgImage = "/images/AirBNB/hero1.jpeg"
+export const defaultOgImage = "/images/og-default.jpg"
+export const defaultOgImageAlt = "Ferienwohnung von Prime Residenz im Siegerland"
+
+// Fixed content date used for sitemap lastModified; bump when page content changes.
+export const contentLastModified = new Date("2026-10-14")
 
 const fallbackSiteUrl = "https://prime-residenz.de"
 
@@ -27,11 +33,11 @@ export function serializeJsonLd(data: unknown) {
 }
 
 export function propertyDescription(property: Property) {
-  const location = property.title.toLowerCase().includes(property.location.toLowerCase())
-    ? ""
-    : ` in ${property.location}`
+  const place = property.location.replace(/,\s*Deutschland$/, "")
+  const location = property.title.toLowerCase().includes(place.toLowerCase()) ? "" : ` in ${place}`
+  const channels = [property.bookingUrl && "Booking.com", property.airbnbUrl && "Airbnb"].filter(Boolean).join(" oder ")
 
-  return `${property.title}${location}: ${property.beds} Schlafzimmer, ${property.baths} Bad/Bäder und Ausstattung wie ${property.features.slice(0, 3).join(", ")}. Verfügbarkeit und Preise finden Sie auf Booking oder Airbnb.`
+  return `${property.title}${location}: ${property.beds} Schlafzimmer, ${property.baths} Bad, ${property.features.slice(0, 3).join(", ")}. Buchbar über ${channels || "Direktanfrage"} oder direkt bei Prime Residenz.`
 }
 
 function localityFromLocation(location: string) {
@@ -109,8 +115,25 @@ export function siteStructuredData() {
         "@id": `${siteUrl}/#business`,
         name: siteName,
         url: siteUrl,
+        description: siteDescription,
+        image: absoluteUrl(defaultOgImage),
+        logo: absoluteUrl("/icon.svg"),
         email: "primeresidenz@web.de",
-        telephone: ["+491713739720", "+492713356715"],
+        telephone: "+491713739720",
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: "+491713739720",
+            contactType: "reservations",
+            availableLanguage: ["de", "en"],
+          },
+          {
+            "@type": "ContactPoint",
+            telephone: "+492713356715",
+            contactType: "customer service",
+            availableLanguage: ["de", "en"],
+          },
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "Hochstr. 36",
@@ -124,6 +147,10 @@ export function siteStructuredData() {
           { "@type": "City", name: "Kreuztal" },
           { "@type": "City", name: "Wilnsdorf" },
         ],
+        knowsLanguage: ["de", "en"],
+        containsPlace: properties.map((property) => ({
+          "@id": `${absoluteUrl(`/collection/${property.id}`)}#accommodation`,
+        })),
       },
       {
         "@type": "WebSite",
@@ -250,6 +277,58 @@ export function propertyStructuredData(property: Property) {
       url: bookingUrl,
       name: "Verfügbarkeit und Buchung",
     },
-    knowsLanguage: ["de-DE", "en"],
+  }
+}
+
+export function faqStructuredData(faqs: FaqItem[], pageUrl: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    inLanguage: "de-DE",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+export function cityStructuredData(city: CityLocation, cityProperties: Property[]) {
+  const url = absoluteUrl(cityPath(city.slug))
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: city.headline,
+    description: city.intro,
+    inLanguage: "de-DE",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: {
+      "@type": "City",
+      name: city.name,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: city.coordinates.lat,
+        longitude: city.coordinates.lng,
+      },
+      containedInPlace: { "@type": "AdministrativeArea", name: "Kreis Siegen-Wittgenstein" },
+    },
+    primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(city.image) },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: cityProperties.length,
+      itemListElement: cityProperties.map((property, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: absoluteUrl(`/collection/${property.id}`),
+        name: property.title,
+      })),
+    },
   }
 }

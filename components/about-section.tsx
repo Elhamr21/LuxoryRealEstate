@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { properties } from "@/lib/properties"
 
 export function AboutSection() {
   const { ref, isVisible } = useScrollReveal(0.1)
@@ -15,7 +16,7 @@ export function AboutSection() {
             className={`relative aspect-[3/4] overflow-hidden lg:aspect-auto ${isVisible ? "animate-morph-in" : "opacity-0"}`}
           >
             <Image
-              src="/images/hero-property.png"
+              src="/images/hero-property.webp"
               alt="Hochwertige Unterkunft von Prime Residenz"
               fill
               className="object-cover"
@@ -25,7 +26,7 @@ export function AboutSection() {
 
             {/* Floating stat card */}
             <div className="absolute bottom-8 right-8 rounded-sm border border-primary-foreground/20 bg-foreground/30 px-6 py-4 backdrop-blur-lg">
-              <span className="block font-serif text-3xl font-bold text-primary-foreground">4+</span>
+              <span className="block font-serif text-3xl font-bold text-primary-foreground">{properties.length}</span>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground/70">
                 Luxusunterkünfte
               </span>

@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 const heroSlides = [
   {
     image: "/images/AirBNB/hero1.jpeg",
     title: "Wohnung in Kreuztal-Zentrum",
-    location: "Kre, Deutschland",
+    location: "Kreuztal, Deutschland",
   },
   {
     image: "/images/AirBNB/hero2.jpeg",
@@ -54,7 +55,7 @@ export function HeroSection() {
   >
           <Image
             src={s.image || "/placeholder.svg"}
-            alt={s.title}
+            alt={`${s.title} – ${s.location}`}
             fill
             className="object-cover scale-105"
             priority={i === 0}
@@ -92,28 +93,30 @@ export function HeroSection() {
           </div>
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div
-              className={`transition-all duration-700 ${
-                isTransitioning
-                  ? "translate-y-4 opacity-0"
-                  : "translate-y-0 opacity-100"
-              }`}
-            >
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
-                Ausgewählte Unterkunft
-              </p>
-              <h1 className="font-serif text-5xl font-bold leading-tight text-primary-foreground md:text-7xl lg:text-8xl">
-                {slide.title}
+            <div>
+              <h1 className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
+                Ferienwohnungen &amp; Apartments in Siegen, Kreuztal und Wilnsdorf
               </h1>
-              <div className="mt-4 flex items-center gap-4">
-                <span className="font-sans text-lg text-primary-foreground/80">
-                  {slide.location}
-                </span>
+              <div
+                className={`transition-all duration-700 ${
+                  isTransitioning
+                    ? "translate-y-4 opacity-0"
+                    : "translate-y-0 opacity-100"
+                }`}
+              >
+                <p className="font-serif text-5xl font-bold leading-tight text-primary-foreground md:text-7xl lg:text-8xl">
+                  {slide.title}
+                </p>
+                <div className="mt-4 flex items-center gap-4">
+                  <span className="font-sans text-lg text-primary-foreground/80">
+                    {slide.location}
+                  </span>
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col items-start gap-4 lg:items-end">
-              <a
+              <Link
                 href="/collection"
                 className="group flex items-center gap-3 rounded-sm border border-primary-foreground/30 px-8 py-3 text-primary-foreground transition-all hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
@@ -133,7 +136,7 @@ export function HeroSection() {
                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
-              </a>
+              </Link>
 
               {/* Slide indicators */}
               <div className="flex items-center gap-3">
